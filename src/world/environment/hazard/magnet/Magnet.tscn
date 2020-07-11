@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/world/environment/hazard/magnet/Magnet.gd" type="Script" id=1]
+[ext_resource path="res://src/world/environment/hazard/magnet/magnet-4-81291.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 36.3969, 103.364 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 36.2178, 67.9178 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 400.0
+initial_velocity_random = 0.07
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.6
+scale_random = 0.5
+
+[sub_resource type="Animation" id=4]
+resource_name = "blowing"
+loop = true
+
+[sub_resource type="Animation" id=5]
+resource_name = "blowing_off"
+
+[sub_resource type="Animation" id=6]
+
+[node name="Magnet" type="StaticBody2D" groups=[
+"hazard",
+]]
+position = Vector2( 528.565, 355.727 )
+input_pickable = true
+collision_layer = 8
+script = ExtResource( 1 )
+AIR_SHAPE = SubResource( 7 )
+gravity_intensity = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.86102, 11.4442 )
+shape = SubResource( 1 )
+
+[node name="air" type="Area2D" parent="."]
+gravity_vec = Vector2( -2.44929e-15, -40 )
+priority = 1.0
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="air"]
+position = Vector2( 0, -143.364 )
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.577942, 0.578003 )
+rotation = 4.71239
+scale = Vector2( 0.4, 0.4 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 20.0
+one_shot = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, -140 )
+emitting = false
+amount = 200
+speed_scale = 1.16
+randomness = 0.29
+fract_delta = false
+visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/blowing = SubResource( 4 )
+anims/blowing_off = SubResource( 5 )
+anims/blowing_on = SubResource( 6 )
+[connection signal="input_event" from="." to="." method="_on_Pipe_input_event"]
+[connection signal="body_entered" from="air" to="." method="_on_air_body_entered"]
+[connection signal="body_exited" from="air" to="." method="_on_air_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
