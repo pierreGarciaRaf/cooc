@@ -8,6 +8,8 @@ export var levelGoalPath : NodePath
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Refresh.start()
+
 	if levelGoalPath != null:
 		get_node(levelGoalPath).connect("end_level",self,"end_level")
 
