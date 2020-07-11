@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/world/environment/hazard/magnet/Magnet.gd" type="Script" id=1]
 [ext_resource path="res://src/world/environment/hazard/magnet/magnet.png" type="Texture" id=2]
@@ -10,6 +10,12 @@ extents = Vector2( 30, 300 )
 extents = Vector2( 36.2178, 67.9178 )
 
 [sub_resource type="CurveTexture" id=7]
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0.0446927, 0.314773 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
@@ -26,6 +32,7 @@ linear_accel = 100.0
 linear_accel_curve = SubResource( 7 )
 scale = 1.6
 scale_random = 0.5
+scale_curve = SubResource( 9 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "blowing"
