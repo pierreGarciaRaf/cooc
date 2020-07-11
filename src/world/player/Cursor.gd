@@ -30,5 +30,6 @@ func _physics_process(delta):
 		$Sprite.modulate = Color(1,1,1,1)
 
 
-func _on_Refresh_hazard_collided(velocity):
-	hazard_velocity+=velocity
+func _on_Refresh_hazard_collided(velocity_param):
+	print(velocity)
+	hazard_velocity+=velocity_param

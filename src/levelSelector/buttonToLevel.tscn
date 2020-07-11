@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/levelSelector/buttonToLevel.gd" type="Script" id=1]
+
+[node name="buttonToLevel" type="Button"]
+margin_right = 58.0
+margin_bottom = 20.0
+disabled = true
+text = "Level 1"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_buttonToLevel_pressed"]
