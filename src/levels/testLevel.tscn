@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/levels/basicLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/world/environment/hazard/refresh/Refresh.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tileset.res" type="TileSet" id=6]
+[ext_resource path="res://src/world/environment/hazard/magnet/Magnet.tscn" type="PackedScene" id=7]
 
 [node name="level" instance=ExtResource( 1 )]
 levelGoalPath = NodePath("goal")
@@ -24,6 +25,7 @@ position = Vector2( 175.851, 153.885 )
 [node name="walls" type="Node2D" parent="." index="3"]
 
 [node name="Wall" parent="walls" index="0" instance=ExtResource( 3 )]
+position = Vector2( 0, 0.10968 )
 
 [node name="Wall2" parent="walls" index="1" instance=ExtResource( 3 )]
 position = Vector2( 256, 0 )
@@ -41,8 +43,13 @@ position = Vector2( 701.619, 597.979 )
 rotation = -0.833842
 gravity_intensity = -40
 
-[node name="TileMap" type="TileMap" parent="." index="6"]
+[node name="Magnet" parent="." index="6" instance=ExtResource( 7 )]
+position = Vector2( 47.896, 158.668 )
+rotation = 1.5708
+
+[node name="TileMap" type="TileMap" parent="." index="7"]
+rotation = 1.25816
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 65536, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 786432, 6, 0, 786433, 4, 0, 786434, 4, 0, 786435, 4, 0, 786436, 4, 0, 786437, 4, 0, 786438, 4, 0, 786439, 4, 0, 786440, 4, 0, 786441, 4, 0, 786442, 4, 0, 786443, 4, 0, 786444, 4, 0, 786445, 4, 0 )
+tile_data = PoolIntArray( 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0 )

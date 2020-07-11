@@ -6,7 +6,7 @@ signal hazard_collided(velocity)
 
 export (Shape2D) onready var AIR_SHAPE setget set_air_shape
 export (float) var duration = 20
-export var gravity_intensity = -200
+export var gravity_intensity = -40
 
 enum State {
 	IDLE,
@@ -14,6 +14,8 @@ enum State {
 	BLOWING,
 	BLOWING_OFF
 }
+
+const FOREVER=true
 
 func set_air_shape(air_shape):
 	if Engine.editor_hint and air_shape and is_inside_tree():
@@ -25,8 +27,7 @@ func set_air_shape(air_shape):
 func get_air_shape():
 	return AIR_SHAPE
 
-const FOREVER = true
-const  Y_SHIFT = - 140; # something like sprite.height/2
+const  Y_SHIFT = - 40	; # something like sprite.height/2
 
 func animate_area():
 	var shape = AIR_SHAPE.duplicate()
@@ -67,7 +68,7 @@ func _ready():
 	$Particles2D.position = Vector2.ZERO
 	$Particles2D.process_material = pmaterial
 	$Particles2D.lifetime = air_extents.y * 2 / pmaterial.initial_velocity
-	$Particles2D.amount = abs(gravity_intensity)
+	$Particles2D.amount = 5 * abs(gravity_intensity)
 	
 	if gravity_intensity > 0: 
 		$Particles2D.scale = Vector2(1,-1)
@@ -81,8 +82,11 @@ func _ready():
 	change_state(State.IDLE)
 
 func _process(_delta):
-	if colliding and state != State.IDLE:
-		emit_signal("hazard_collided",$air.gravity_vec)
+	if entered_body and state != State.IDLE:
+		var gravity = $air.gravity_vec
+		var pos = to_local(entered_body.global_position)
+		var r = self.position.distance_to(pos)
+		emit_signal("hazard_collided",1000000 * $air.gravity_vec/r/r)
 
 func change_state(new_state):
 	state = new_state
@@ -143,14 +147,17 @@ func play_animation(anim_name):
 			
 
 var state
-var colliding = false
+
+var entered_body
 
 func _on_air_body_entered(body):
 	if body.is_in_group('player'):
 		print('entered')
-		colliding = true
+		entered_body = body
+
 
 func _on_air_body_exited(body):
 	if body.is_in_group('player'):
 		print('exited')
-		colliding = false
+		entered_body = null
+

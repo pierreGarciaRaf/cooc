@@ -50,6 +50,9 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+[editor_plugins]
+
+enabled=PoolStringArray( "codeandweb.texturepacker" )
 
 [physics]
 
