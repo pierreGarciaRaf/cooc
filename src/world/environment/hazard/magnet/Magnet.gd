@@ -81,7 +81,10 @@ func _ready():
 
 func _process(_delta):
 	if colliding and state != State.IDLE:
-		emit_signal("hazard_collided",$air.gravity_vec)
+		var gravity = $air.gravity_vec
+		var pos = to_local(entered_body.global_position)
+		var r = self.position.distance_to(pos)
+		emit_signal("hazard_collided",1000000 * $air.gravity_vec/r/r)
 
 func change_state(new_state):
 	state = new_state
@@ -143,10 +146,14 @@ func play_animation(anim_name):
 var state
 var colliding = false
 
-func _on_air_body_entered(_body):
+var entered_body
+
+func _on_air_body_entered(body):
 	print('entered')
+	entered_body = body
 	colliding = true
 
 func _on_air_body_exited(_body):
 	print('exited')
+	entered_body = false
 	colliding = false
