@@ -26,7 +26,7 @@ func get_air_shape():
 	return AIR_SHAPE
 
 const FOREVER = true
-const  Y_SHIFT = - 140; # something like sprite.height/2
+const  Y_SHIFT = - 30; # something like sprite.height/2
 
 func animate_area():
 	var shape = AIR_SHAPE.duplicate()
