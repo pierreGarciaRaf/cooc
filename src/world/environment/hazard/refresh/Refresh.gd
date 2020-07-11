@@ -32,16 +32,16 @@ func animate_area():
 	$air/CollisionShape2D.shape=shape
 	$air.update()
 	
-	var duration = AIR_SHAPE.extents.y * 2 / $Particles2D.process_material.initial_velocity / $Particles2D.speed_scale
+	var anim_duration = AIR_SHAPE.extents.y * 2 / $Particles2D.process_material.initial_velocity / $Particles2D.speed_scale
 	$Tween.interpolate_property(shape,"extents",
 			Vector2(AIR_SHAPE.extents.x, 0),
 			AIR_SHAPE.extents, 
-			duration,
+			anim_duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property($air/CollisionShape2D,"position",
 			Vector2(0, shift_y),
 			Vector2(0, shift_y - AIR_SHAPE.get_extents().y), 
-			duration,
+			anim_duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()	
 
@@ -79,12 +79,10 @@ func _ready():
 
 	change_state(State.IDLE)
 
-func _process(delta):
+func _process(_delta):
 	if colliding and state != State.IDLE:
 		print($air.gravity_vec)
 		emit_signal("hazard_collided",$air.gravity_vec)
-
-
 
 func change_state(new_state):
 	state = new_state
@@ -151,14 +149,10 @@ var state
 
 var colliding = false
 
-func _on_air_body_entered(body):
-	if body.is_in_group("player"):
-		connect("hazard_collided",body,"_on_Refresh_hazard_collided")
+func _on_air_body_entered(_body):
 	print('entered')
 	colliding = true
 
-func _on_air_body_exited(body):
-	if body.is_in_group("player"):
-		disconnect("hazard_collided",body,"_on_Refresh_hazard_collided")
+func _on_air_body_exited(_body):
 	print('exited')
 	colliding = false

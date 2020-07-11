@@ -39,5 +39,5 @@ func _physics_process(delta):
 func receiveDamage(toBePushedBack = Vector2.ZERO):
 	hazard_velocity
 
-func _on_Refresh_hazard_collided(velocity_param):
+func hazard_collided(velocity_param):
 	hazard_velocity+=velocity_param
