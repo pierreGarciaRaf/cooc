@@ -11,11 +11,11 @@
 [node name="level" instance=ExtResource( 1 )]
 levelGoalPath = NodePath("goal")
 
-[node name="Cursor" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( 160, 72 )
+[node name="goal" parent="." index="0" instance=ExtResource( 4 )]
+position = Vector2( 896, 480 )
 
-[node name="goal" parent="." index="2" instance=ExtResource( 4 )]
-position = Vector2( 960, 544 )
+[node name="Cursor" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 160, 72 )
 
 [node name="ads" type="Node2D" parent="." index="4"]
 
