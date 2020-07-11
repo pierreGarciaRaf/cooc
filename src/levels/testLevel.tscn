@@ -36,12 +36,10 @@ rotation = 1.5708
 
 [node name="Refresh" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 320, 384 )
-gravity_intensity = -40
 
 [node name="Refresh2" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 701.619, 597.979 )
 rotation = -0.833842
-gravity_intensity = -40
 
 [node name="Magnet" parent="." index="6" instance=ExtResource( 7 )]
 position = Vector2( 47.896, 158.668 )
