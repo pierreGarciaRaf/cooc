@@ -110,16 +110,13 @@ func change_state(new_state):
 func _on_Timer_timeout():
 	change_state(State.BLOWING_OFF)
 
-func _on_pipe_animation_finished():
+func _on_blow_animation_finished():
 	match state:
 		State.BLOWING_ON:
 			change_state(State.BLOWING)
 		State.BLOWING_OFF:
 			change_state(State.IDLE)
 
-func _on_Pipe_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.is_pressed():
-		start()
 
 func start():
 	if state != State.IDLE:
@@ -127,7 +124,7 @@ func start():
 	change_state(State.BLOWING_ON)
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	_on_pipe_animation_finished()
+	_on_blow_animation_finished()
 
 # Abstract function to play animation (AnimatedSprite or AnimationPlayer)
 func play_animation(anim_name):
@@ -144,9 +141,7 @@ func play_animation(anim_name):
 			$Sprite.play(anim_name)
 			
 
-var glow_material
 var state
-
 var colliding = false
 
 func _on_air_body_entered(_body):

@@ -13,7 +13,6 @@ func _ready():
 		hazard.connect('hazard_collided', player, 'hazard_collided')
 	get_tree().call_group('hazard','start')
 	
-	#$Refresh.start()
 	if levelGoalPath != null:
 		get_node(levelGoalPath).connect("end_level",self,"end_level")
 
