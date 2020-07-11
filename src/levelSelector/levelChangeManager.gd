@@ -1,7 +1,7 @@
 extends Node
 
-var maxUnlockedLevel = 1
-var actualLevel = 1
+var maxUnlockedLevel = 0
+var actualLevel = 0
 
 func unlockNextLevel():
 	if maxUnlockedLevel == actualLevel:

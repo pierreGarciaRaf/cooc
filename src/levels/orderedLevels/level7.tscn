@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tileset.res" type="TileSet" id=1]
 [ext_resource path="res://src/world/environment/goal/completeText.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/world/environment/hazard/worldWideWeb/WWW.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/world/environment/hazard/refresh/Refresh.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/world/environment/ads/BUYad.png" type="Texture" id=8]
 
 [node name="level" instance=ExtResource( 3 )]
 
@@ -37,3 +38,8 @@ tile_data = PoolIntArray( 65531, 536870915, 0, 65532, 5, 0, 65533, 0, 0, 65534, 
 position = Vector2( 672, 0 )
 rotation = 3.14159
 gravity_intensity = -500
+
+[node name="BUYad" type="Sprite" parent="." index="9"]
+position = Vector2( 336, 480 )
+scale = Vector2( 0.4, 0.8 )
+texture = ExtResource( 8 )

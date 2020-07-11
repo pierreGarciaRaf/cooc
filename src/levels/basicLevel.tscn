@@ -17,6 +17,7 @@ scale = Vector2( 4, 3 )
 texture = ExtResource( 4 )
 
 [node name="endGamePopup" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="deathPopup" parent="." instance=ExtResource( 3 )]
 
