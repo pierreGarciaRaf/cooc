@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://cursor.png" type="Texture" id=1]
+[ext_resource path="res://Cursor.gd" type="Script" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://magnet-4-81291.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 147.426, 72.3753 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Cursor" type="KinematicBody2D" parent="."]
+position = Vector2( 201.213, 64.4511 )
+scale = Vector2( 0.15, 0.15 )
+input_pickable = true
+collision_mask = 6
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Cursor"]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cursor"]
+polygon = PoolVector2Array( -65, -148.1, -65, -146.8, 113, 30.2, 113, 32.5, 118, 45, 115.7, 45, 114.6, 50, 112.7, 50, 103.7, 57, 98, 57, 59, 58.9, 59, 63, 87, 116.5, 87, 119.7, 89.4, 134, 87, 134, 77, 147, 74.5, 147, 35.5, 169, 32.3, 169, 17, 171.3, 17, 169.1, 5, 161.1, 5, 158.5, -32.1, 94, -36.1, 94, -73.2, 128, -75.6, 128, -89, 130.4, -89, 128, -96, 123, -96, 120.4, -99, 112.4, -99, -140, -97.5, -140, -92, -161, -92, -163.2, -89.9, -164.3 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 196.612, 223.036 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 198.97, -22.193 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 454.417, -20.2281 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 708.684, -19.0491 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 708.684, -19.0491 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 451.666, 225.001 )
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 720.892, 564.548 )
+
+[node name="Wall12" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 445.378, 567.299 )
+
+[node name="Wall13" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 450.88, 413.245 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 34.6985, 132.647 )
+rotation = 1.5865
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 285.822, 504.813 )
+rotation = 1.5865
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 884.452, 138.418 )
+rotation = 1.5865
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 880.698, 391.249 )
+rotation = 1.5865
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 612.794, 315.783 )
+rotation = 1.5865
+
+[node name="Magnet" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Magnet"]
+position = Vector2( 527.726, 323.895 )
+space_override = 2
+gravity_vec = Vector2( -1, 0 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet/Area2D"]
+position = Vector2( 236.421, 11.7458 )
+shape = SubResource( 1 )
+
+[node name="magnet-4-81291" type="Sprite" parent="Magnet"]
+position = Vector2( 527.726, 323.895 )
+scale = Vector2( 0.40241, 0.280974 )
+texture = ExtResource( 5 )
