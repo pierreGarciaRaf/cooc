@@ -15,5 +15,5 @@ position = Vector2( 98.3842, 55.4292 )
 position = Vector2( 655.212, 233.007 )
 
 [node name="Refresh" parent="." index="3" instance=ExtResource( 3 )]
-position = Vector2( 319.112, 437.687 )
-gravity_intensity = -10
+position = Vector2( 309.033, 605.256 )
+gravity_intensity = -500

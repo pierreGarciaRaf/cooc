@@ -8,20 +8,26 @@ var hazard_velocity = Vector2()
 
 var lastMousePos = Vector2(0,0)
 
+var lifePointPull = 3
+var lifePoint
+
+func _ready():
+	lifePoint = lifePointPull
+
 func _input(event):
 	#so the mouse is captured
 	if event is InputEventMouseMotion:
 		mouseMoveBetweenProcess += (event as InputEventMouseMotion).relative
 
 func get_input():
-	#removes the tp bug + allows the mouse to move while it's captured
+	#removes the teleportation bug + allows the mouse to move while it's captured
 	velocity = mouseMoveBetweenProcess
 	mouseMoveBetweenProcess = Vector2.ZERO
 
 
 func _physics_process(delta):
 	get_input()
-	move_and_slide((velocity+hazard_velocity)/delta)
+	move_and_slide(velocity/delta+hazard_velocity)
 	hazard_velocity = Vector2.ZERO
 	if get_slide_count()>0 :
 		#print (collision, collision.collider)
@@ -30,6 +36,8 @@ func _physics_process(delta):
 		$Sprite.modulate = Color(1,1,1,1)
 
 
+func receiveDamage(toBePushedBack = Vector2.ZERO):
+	hazard_velocity
+
 func _on_Refresh_hazard_collided(velocity_param):
-	print(velocity_param)
 	hazard_velocity+=velocity_param

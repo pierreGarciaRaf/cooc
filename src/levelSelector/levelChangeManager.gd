@@ -15,6 +15,9 @@ func changeToLevel(levelNumber):
 		get_tree().change_scene_to(load(get_level_path(levelNumber)))
 		actualLevel = levelNumber
 
+func restartLevel():
+	changeToLevel(actualLevel)
+
 func changeToNextLevel():
 	changeToLevel(actualLevel + 1)
 

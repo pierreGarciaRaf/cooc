@@ -101,6 +101,7 @@ one_shot = true
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
 amount = 200
+lifetime = 1.0
 speed_scale = 1.16
 randomness = 0.29
 fract_delta = false

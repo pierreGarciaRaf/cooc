@@ -81,6 +81,7 @@ func _ready():
 
 func _process(delta):
 	if colliding and state != State.IDLE:
+		print($air.gravity_vec)
 		emit_signal("hazard_collided",$air.gravity_vec)
 
 
@@ -102,7 +103,7 @@ func change_state(new_state):
 			$Timer.start()
 			play_animation('blowing')
 		State.BLOWING_OFF:
-			$Particles2D.visible = false	
+			$Particles2D.visible = false
 			$Particles2D.emitting=false
 			$air.space_override = Area2D.SPACE_OVERRIDE_DISABLED
 			play_animation('blowing_off')
@@ -157,5 +158,7 @@ func _on_air_body_entered(body):
 	colliding = true
 
 func _on_air_body_exited(body):
+	if body.is_in_group("player"):
+		disconnect("hazard_collided",body,"_on_Refresh_hazard_collided")
 	print('exited')
 	colliding = false
