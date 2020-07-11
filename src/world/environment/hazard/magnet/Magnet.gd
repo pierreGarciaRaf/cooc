@@ -15,7 +15,7 @@ enum State {
 	BLOWING_OFF
 }
 
-const auto_start=true
+const FOREVER=true
 
 func set_air_shape(air_shape):
 	if Engine.editor_hint and air_shape and is_inside_tree():
@@ -112,7 +112,7 @@ func change_state(new_state):
 		
 
 func _on_Timer_timeout():
-	if not auto_start:
+	if not FOREVER:
 		change_state(State.BLOWING_OFF)
 
 func _on_blow_animation_finished():

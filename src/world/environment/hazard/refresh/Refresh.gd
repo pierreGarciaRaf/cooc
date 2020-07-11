@@ -25,6 +25,7 @@ func set_air_shape(air_shape):
 func get_air_shape():
 	return AIR_SHAPE
 
+const FOREVER = true
 const  Y_SHIFT = - 140; # something like sprite.height/2
 
 func animate_area():
@@ -107,7 +108,8 @@ func change_state(new_state):
 		
 
 func _on_Timer_timeout():
-	change_state(State.BLOWING_OFF)
+	if not FOREVER:
+		change_state(State.BLOWING_OFF)
 
 func _on_blow_animation_finished():
 	match state:
