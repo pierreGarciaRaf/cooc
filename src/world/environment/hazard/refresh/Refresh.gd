@@ -1,6 +1,9 @@
 extends Node2D
 tool
 
+
+signal hazard_collided(velocity)
+
 export (Shape2D) onready var AIR_SHAPE setget set_air_shape
 
 export var gravity_intensity = -40
@@ -72,9 +75,14 @@ func _ready():
 		$Particles2D.scale = Vector2(1,1)
 		#$Particles2D.position = Vector2(0, -70 - air_extents.y*2)
 		$Particles2D.preprocess = 0
-	
 
 	change_state(State.IDLE)
+
+func _process(delta):
+	if colliding:
+		emit_signal("hazard_collided",$air.gravity_intensity)
+
+
 
 func change_state(new_state):
 	state = new_state
@@ -122,7 +130,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	_on_pipe_animation_finished()
 
 # Abstract function to play animation (AnimatedSprite or AnimationPlayer)
-func play_animation(	anim_name):
+func play_animation(anim_name):
 	var backward = gravity_intensity > 0
 	if backward:
 		if has_node(@"AnimationPlayer"):
@@ -138,3 +146,11 @@ func play_animation(	anim_name):
 
 var glow_material
 var state
+
+var colliding = false
+
+func _on_air_body_entered(body):
+	colliding = true;
+
+func _on_air_body_exited(body):
+	colliding = false;
