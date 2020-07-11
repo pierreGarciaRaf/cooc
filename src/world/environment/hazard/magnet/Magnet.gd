@@ -82,7 +82,7 @@ func _ready():
 	change_state(State.IDLE)
 
 func _process(_delta):
-	if colliding and state != State.IDLE:
+	if entered_body and state != State.IDLE:
 		var gravity = $air.gravity_vec
 		var pos = to_local(entered_body.global_position)
 		var r = self.position.distance_to(pos)
@@ -147,16 +147,17 @@ func play_animation(anim_name):
 			
 
 var state
-var colliding = false
 
 var entered_body
 
 func _on_air_body_entered(body):
-	print('entered')
-	entered_body = body
-	colliding = true
+	if body.is_in_group('player'):
+		print('entered')
+		entered_body = body
 
-func _on_air_body_exited(_body):
-	print('exited')
-	entered_body = false
-	colliding = false
+
+func _on_air_body_exited(body):
+	if body.is_in_group('player'):
+		print('exited')
+		entered_body = null
+

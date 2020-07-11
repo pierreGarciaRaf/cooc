@@ -145,10 +145,12 @@ func play_animation(anim_name):
 var state
 var colliding = false
 
-func _on_air_body_entered(_body):
-	print('entered')
-	colliding = true
+func _on_air_body_entered(body):
+	if body.is_in_group('player'):
+		print('entered')
+		colliding = true
 
-func _on_air_body_exited(_body):
-	print('exited')
-	colliding = false
+func _on_air_body_exited(body):
+	if body.is_in_group('player'):
+		print('exited')
+		colliding = false
