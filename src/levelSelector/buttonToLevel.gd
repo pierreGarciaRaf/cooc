@@ -6,7 +6,6 @@ func get_level_number():
 
 func _ready(): 
 	levelNumber = get_level_number()
-	print(levelNumber)
 	self.disabled = not LevelChangeManager.unlockedLevelNumber(levelNumber)
 	self.text = "Level " + String(levelNumber)
 
