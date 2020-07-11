@@ -9,7 +9,7 @@ extents = Vector2( 50, 200 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 36.2178, 67.9178 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 50, 1, 1 )
 flag_disable_z = true
@@ -82,12 +82,12 @@ position = Vector2( -2.86102, 11.4442 )
 shape = SubResource( 2 )
 
 [node name="air" type="Area2D" parent="."]
-gravity_vec = Vector2( -2.44921e-15, -40 )
+gravity_vec = Vector2( -1.22461e-14, -200 )
 priority = 1.0
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="air"]
-position = Vector2( 0, -250 )
+position = Vector2( 0, -230 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -100,16 +100,15 @@ wait_time = 20.0
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 0, -40 )
+position = Vector2( 0, -30 )
 emitting = false
-amount = 40
-lifetime = 1.0
+amount = 200
 speed_scale = 1.16
 randomness = 0.29
 fract_delta = false
 visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
 local_coords = false
-process_material = SubResource( 7 )
+process_material = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 

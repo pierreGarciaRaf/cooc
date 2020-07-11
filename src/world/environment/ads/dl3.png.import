@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/magnetparticle0001.png-4a820563f46e2b51ab74612b01e06439.stex"
+path="res://.import/dl3.png-a45ad197b3c5d8c05dc0bac642e3d734.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/world/environment/hazard/magnet/particles/magnetparticle0001.png"
-dest_files=[ "res://.import/magnetparticle0001.png-4a820563f46e2b51ab74612b01e06439.stex" ]
+source_file="res://src/world/environment/ads/dl3.png"
+dest_files=[ "res://.import/dl3.png-a45ad197b3c5d8c05dc0bac642e3d734.stex" ]
 
 [params]
 

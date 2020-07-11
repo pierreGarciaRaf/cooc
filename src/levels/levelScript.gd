@@ -4,6 +4,8 @@ var endLevelPopupRes = load("res://src/levelSelector/endLevelPopup.tscn")
 
 export var levelGoalPath : NodePath
 
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var player = find_node('Cursor')
@@ -16,7 +18,7 @@ func _ready():
 	get_tree().get_nodes_in_group('player')[0].connect("die",self,"player_dies")
 	
 	if levelGoalPath != null:
-		get_node(levelGoalPath).connect("end_level",self,"end_level")
+		find_node("goal").connect("end_level",self,"end_level")
 
 
 
