@@ -1,0 +1,198 @@
+{
+	"textures": [
+		{
+			"image": "tileset.png",
+			"size": {
+				"w": 110,
+				"h": 10
+			},
+			"sprites": [
+				{
+					"filename": "gui/winButtonL.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winButtonM.png",
+					"region": {
+						"x": 11,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winButtonR.png",
+					"region": {
+						"x": 21,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winButtonTLC.png",
+					"region": {
+						"x": 31,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winD.png",
+					"region": {
+						"x": 41,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winT.png",
+					"region": {
+						"x": 41,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winDLC.png",
+					"region": {
+						"x": 51,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winDRC.png",
+					"region": {
+						"x": 61,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winL.png",
+					"region": {
+						"x": 71,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winLshade.png",
+					"region": {
+						"x": 81,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winR.png",
+					"region": {
+						"x": 91,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "gui/winRshade.png",
+					"region": {
+						"x": 101,
+						"y": 1,
+						"w": 8,
+						"h": 8
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:8ea2ca23fa3279a65f414009208fc5d9:86d1025b179970dda4f48c6578e0dc20:22d72128a9f3a99a7d27423de829fed2$"
+	}
+}

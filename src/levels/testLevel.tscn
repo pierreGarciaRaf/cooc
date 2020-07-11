@@ -38,3 +38,6 @@ position = Vector2( 320, 384 )
 [node name="Refresh2" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 701.619, 597.979 )
 rotation = -0.833842
+
+[node name="TileMap" type="TileMap" parent="." index="6"]
+format = 1
