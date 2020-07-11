@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tileset.res" type="TileSet" id=1]
+[ext_resource path="res://src/world/environment/goal/completeText.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/levels/basicLevel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=5]
+
+[node name="level" instance=ExtResource( 3 )]
+
+[node name="Cursor" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 128, 544 )
+
+[node name="goal" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 960, 32 )
+
+[node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
+position = Vector2( -128, 32 )
+
+[node name="TileMap" type="TileMap" parent="." index="6" groups=[
+"damage_on_contact",
+]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 0, 0, 3, 1, 0, 4, 2, 0, 65536, 9, 0, 65540, 11, 0, 131072, 8, 0, 131076, 10, 0, 196608, 6, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 7, 0 )

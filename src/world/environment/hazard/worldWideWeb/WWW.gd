@@ -34,7 +34,7 @@ func _process(_delta):
 	if entered_body and state != State.IDLE:
 		var body_position = to_local(entered_body.global_position)
 		var r = body_position.length()
-		var v = - gravity_intensity * 1000 * body_position/r/r
+		var v = - gravity_intensity * 1000 * body_position/(r*r)
 		emit_signal("hazard_collided", v)
 
 func change_state(new_state):

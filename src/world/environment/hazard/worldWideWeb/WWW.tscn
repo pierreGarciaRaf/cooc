@@ -12,13 +12,13 @@
 [ext_resource path="res://src/world/environment/hazard/worldWideWeb/animationSprites/10008.png" type="Texture" id=10]
 [ext_resource path="res://src/world/environment/hazard/worldWideWeb/animationSprites/10003.png" type="Texture" id=11]
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=1]
 radius = 50.0
 
-[sub_resource type="CircleShape2D" id=9]
-radius = 200.0
+[sub_resource type="CircleShape2D" id=2]
+radius = 300.0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
@@ -26,38 +26,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
-emission_sphere_radius = 200.0
+emission_sphere_radius = 100.0
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.07
-orbit_velocity = 0.5
+orbit_velocity = 0.2
 orbit_velocity_random = 0.0
-scale = 30.0
-scale_random = 0.29
-
-[sub_resource type="Animation" id=4]
-resource_name = "blowing"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
+radial_accel = -51.32
+angle = 720.0
+angle_random = 1.0
+scale = 7.0
+hue_variation = 1.0
+hue_variation_random = 1.0
 
 [sub_resource type="Animation" id=5]
-resource_name = "blowing_off"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:rotation_degrees")
 tracks/0/interp = 1
@@ -85,6 +73,20 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
 [node name="WWW" type="StaticBody2D" groups=[
 "hazard",
 ]]
@@ -95,7 +97,7 @@ gravity_intensity = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="air" type="Area2D" parent="."]
 gravity_vec = Vector2( -1.22465e-14, -200 )
@@ -103,11 +105,11 @@ priority = 1.0
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="air"]
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4.5, 4.5 )
-frames = SubResource( 7 )
+frames = SubResource( 3 )
 frame = 9
 playing = true
 
@@ -117,21 +119,23 @@ wait_time = 20.0
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
-amount = 10
-lifetime = 2.0
+amount = 200
+lifetime = 200.0
+one_shot = true
 speed_scale = 1.16
+explosiveness = 1.0
 randomness = 0.29
 fract_delta = false
 visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
 local_coords = false
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blowing = SubResource( 4 )
-anims/blowing_off = SubResource( 5 )
-anims/blowing_on = SubResource( 6 )
+anims/blowing = SubResource( 5 )
+anims/blowing_off = SubResource( 6 )
+anims/blowing_on = SubResource( 7 )
 [connection signal="input_event" from="." to="." method="_on_Pipe_input_event"]
 [connection signal="body_entered" from="air" to="." method="_on_air_body_entered"]
 [connection signal="body_exited" from="air" to="." method="_on_air_body_exited"]

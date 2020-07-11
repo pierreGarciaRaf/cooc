@@ -4,6 +4,7 @@
 
 [node name="Control" type="PopupPanel"]
 pause_mode = 2
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -38,7 +39,7 @@ margin_left = -236.5
 margin_right = 236.5
 margin_bottom = 146.0
 grow_horizontal = 0
-text = "You finished the level!"
+text = "You completed the level!"
 align = 1
 valign = 1
 __meta__ = {

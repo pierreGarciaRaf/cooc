@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tileset.res" type="TileSet" id=1]
+[ext_resource path="res://src/world/environment/goal/completeText.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/levels/basicLevel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/world/environment/hazard/worldWideWeb/WWW.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/world/environment/hazard/magnet/Magnet.tscn" type="PackedScene" id=7]
+
+[node name="level" instance=ExtResource( 3 )]
+
+[node name="Cursor" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 64, 512 )
+
+[node name="goal" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 960, 544 )
+
+[node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
+position = Vector2( -128, 32 )
+
+[node name="TileMap" type="TileMap" parent="." index="6" groups=[
+"damage_on_contact",
+]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -196587, 536870915, 0, -196586, 5, 0, -196585, 0, 0, -196584, 1, 0, -196583, 2, 0, -131060, 536870915, 0, -131059, 5, 0, -131058, 0, 0, -131057, 1, 0, -131056, 2, 0, -131051, 9, 0, -131047, 11, 0, -65524, 9, 0, -65520, 11, 0, -65515, 8, 0, -65511, 10, 0, 0, 3, 0, 1, 5, 0, 2, 0, 0, 3, 1, 0, 4, 2, 0, 12, 8, 0, 16, 10, 0, 21, 6, 0, 22, 5, 0, 23, 5, 0, 24, 5, 0, 25, 7, 0, 65536, 9, 0, 65540, 11, 0, 65548, 6, 0, 65549, 5, 0, 65550, 5, 0, 65551, 5, 0, 65552, 7, 0, 131072, 8, 0, 131076, 10, 0, 196608, 6, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 7, 0, 393233, 536870912, 0, 393234, 536870913, 0, 393235, 536870914, 0, 458769, 536870923, 0, 458771, 536870921, 0, 524305, 536870922, 0, 524307, 536870920, 0, 589841, 536870922, 0, 589843, 536870920, 0, 589855, 536870915, 0, 589856, 5, 0, 589857, 0, 0, 589858, 1, 0, 589859, 2, 0, 720892, 536870915, 0, 720893, 5, 0, 720894, 0, 0, 720895, 1, 0, 655360, 2, 0, 655377, 536870919, 0, 655378, 536870916, 0, 655379, 536870918, 0, 655391, 9, 0, 655395, 11, 0, 786428, 9, 0, 720896, 11, 0, 720927, 8, 0, 720931, 10, 0, 851964, 8, 0, 786432, 10, 0, 786463, 6, 0, 786464, 5, 0, 786465, 5, 0, 786466, 5, 0, 786467, 7, 0, 917500, 6, 0, 917501, 5, 0, 917502, 5, 0, 917503, 5, 0, 851968, 7, 0, 1114117, 536870915, 0, 1114118, 5, 0, 1114119, 0, 0, 1114120, 1, 0, 1114121, 2, 0, 1179653, 9, 0, 1179657, 11, 0, 1179662, 536870915, 0, 1179663, 5, 0, 1179664, 0, 0, 1179665, 1, 0, 1179666, 2, 0, 1179668, 536870915, 0, 1179669, 5, 0, 1179670, 0, 0, 1179671, 1, 0, 1179672, 2, 0, 1245189, 8, 0, 1245193, 10, 0, 1245198, 9, 0, 1245202, 11, 0, 1245204, 9, 0, 1245208, 11, 0, 1310725, 6, 0, 1310726, 5, 0, 1310727, 5, 0, 1310728, 5, 0, 1310729, 7, 0, 1310734, 8, 0, 1310738, 10, 0, 1310740, 8, 0, 1310744, 10, 0, 1376270, 6, 0, 1376271, 5, 0, 1376272, 5, 0, 1376273, 5, 0, 1376274, 7, 0, 1376276, 6, 0, 1376277, 5, 0, 1376278, 5, 0, 1376279, 5, 0, 1376280, 7, 0 )
+
+[node name="WWW" parent="." index="7" instance=ExtResource( 6 )]
+position = Vector2( 352, 352 )
+radius = 450.0
+gravity_intensity = 75
+
+[node name="WWW2" parent="." index="8" instance=ExtResource( 6 )]
+position = Vector2( 800, 352 )
+radius = 450.0
+gravity_intensity = 75
+
+[node name="Magnet" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( 960, 96 )
+rotation = -2.07513
+gravity_intensity = 200
+
+[node name="Magnet2" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 576, 544 )
+gravity_intensity = 1000
+
+[node name="Magnet3" parent="." index="11" instance=ExtResource( 7 )]
+position = Vector2( 64, 192 )
+rotation = 1.57079
+gravity_intensity = 200
