@@ -1,14 +1,16 @@
 extends Button
 
-var levelPath
-func get_level_path():
-	return "res://src/levels/orderedLevels/level" + (self.name as String).trim_prefix("buttonToLevel") + ".tscn"
+var levelNumber
+func get_level_number():
+	return int((self.name as String).trim_prefix("buttonToLevel"))
 
-func _ready():
-	levelPath = get_level_path()
-	print(levelPath)
+func _ready(): 
+	levelNumber = get_level_number()
+	print(levelNumber)
+	self.disabled = not LevelChangeManager.unlockedLevelNumber(levelNumber)
+	self.text = "Level " + String(levelNumber)
 
 
 
 func _on_buttonToLevel_pressed():
-	get_tree().change_scene_to(load(levelPath))
+	LevelChangeManager.changeToLevel(levelNumber)

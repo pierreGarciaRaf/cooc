@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="cooc"
-run/main_scene="res://src/levels/testLevel.tscn"
+run/main_scene="res://src/levelSelector/levelSelector.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+LevelChangeManager="*res://src/levelSelector/levelChangeManager.gd"
 
 [display]
 
