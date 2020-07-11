@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/world/environment/wall/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/levelScript.gd" type="Script" id=3]
 [ext_resource path="res://src/world/environment/hazard/magnet/magnet-4-81291.png" type="Texture" id=4]
+[ext_resource path="res://src/world/environment/hazard/refresh/Refresh.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 147.426, 72.3753 )
@@ -79,3 +80,8 @@ shape = SubResource( 1 )
 position = Vector2( 527.726, 323.895 )
 scale = Vector2( 0.40241, 0.280974 )
 texture = ExtResource( 4 )
+
+[node name="Refresh" parent="." instance=ExtResource( 5 )]
+position = Vector2( 367.048, 329.781 )
+z_index = 1
+[connection signal="hazard_collided" from="Refresh" to="Cursor" method="_on_Refresh_hazard_collided"]

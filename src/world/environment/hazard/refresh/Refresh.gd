@@ -5,7 +5,7 @@ tool
 signal hazard_collided(velocity)
 
 export (Shape2D) onready var AIR_SHAPE setget set_air_shape
-
+export (float) var duration = 20
 export var gravity_intensity = -40
 
 enum State {
@@ -51,6 +51,7 @@ func setup_air_shape(air_shape):
 	$air/CollisionShape2D.shape=air_shape
 	
 func _ready():
+	$Timer.wait_time = duration
 	# Gravity 
 	var gravity_angle = self.rotation + PI/2
 	
@@ -79,8 +80,8 @@ func _ready():
 	change_state(State.IDLE)
 
 func _process(delta):
-	if colliding:
-		emit_signal("hazard_collided",$air.gravity_intensity)
+	if colliding and state != State.IDLE:
+		emit_signal("hazard_collided",$air.gravity_vec)
 
 
 
@@ -150,7 +151,9 @@ var state
 var colliding = false
 
 func _on_air_body_entered(body):
+	print('entered');
 	colliding = true;
 
 func _on_air_body_exited(body):
+	print('exited');
 	colliding = false;
