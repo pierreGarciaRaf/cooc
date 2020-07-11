@@ -25,29 +25,29 @@ func set_air_shape(air_shape):
 func get_air_shape():
 	return AIR_SHAPE
 
-var shift_y = - 140; # something like sprite.height/2
+const  Y_SHIFT = - 140; # something like sprite.height/2
 
 func animate_area():
 	var shape = AIR_SHAPE.duplicate()
 	$air/CollisionShape2D.shape=shape
 	$air.update()
 	
-	var duration = AIR_SHAPE.extents.y * 2 / $Particles2D.process_material.initial_velocity / $Particles2D.speed_scale
+	var anim_duration = AIR_SHAPE.extents.y * 2 / $Particles2D.process_material.initial_velocity / $Particles2D.speed_scale
 	$Tween.interpolate_property(shape,"extents",
 			Vector2(AIR_SHAPE.extents.x, 0),
 			AIR_SHAPE.extents, 
-			duration,
+			anim_duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property($air/CollisionShape2D,"position",
-			Vector2(0, shift_y),
-			Vector2(0, shift_y - AIR_SHAPE.get_extents().y), 
-			duration,
+			Vector2(0, Y_SHIFT),
+			Vector2(0, Y_SHIFT - AIR_SHAPE.get_extents().y), 
+			anim_duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()	
 
 
 func setup_air_shape(air_shape):
-	$air/CollisionShape2D.position = Vector2(0, shift_y - air_shape.get_extents().y)
+	$air/CollisionShape2D.position = Vector2(0, Y_SHIFT - air_shape.get_extents().y)
 	$air/CollisionShape2D.shape=air_shape
 	
 func _ready():
@@ -74,17 +74,14 @@ func _ready():
 		$Particles2D.preprocess = $Particles2D.lifetime
 	else:
 		$Particles2D.scale = Vector2(1,1)
-		#$Particles2D.position = Vector2(0, -70 - air_extents.y*2)
+		$Particles2D.position = Vector2(0, Y_SHIFT)
 		$Particles2D.preprocess = 0
 
 	change_state(State.IDLE)
 
-func _process(delta):
+func _process(_delta):
 	if colliding and state != State.IDLE:
-		print($air.gravity_vec)
 		emit_signal("hazard_collided",$air.gravity_vec)
-
-
 
 func change_state(new_state):
 	state = new_state
@@ -112,16 +109,13 @@ func change_state(new_state):
 func _on_Timer_timeout():
 	change_state(State.BLOWING_OFF)
 
-func _on_pipe_animation_finished():
+func _on_blow_animation_finished():
 	match state:
 		State.BLOWING_ON:
 			change_state(State.BLOWING)
 		State.BLOWING_OFF:
 			change_state(State.IDLE)
 
-func _on_Pipe_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.is_pressed():
-		start()
 
 func start():
 	if state != State.IDLE:
@@ -129,7 +123,7 @@ func start():
 	change_state(State.BLOWING_ON)
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	_on_pipe_animation_finished()
+	_on_blow_animation_finished()
 
 # Abstract function to play animation (AnimatedSprite or AnimationPlayer)
 func play_animation(anim_name):
@@ -146,19 +140,13 @@ func play_animation(anim_name):
 			$Sprite.play(anim_name)
 			
 
-var glow_material
 var state
-
 var colliding = false
 
-func _on_air_body_entered(body):
-	if body.is_in_group("player"):
-		connect("hazard_collided",body,"_on_Refresh_hazard_collided")
+func _on_air_body_entered(_body):
 	print('entered')
 	colliding = true
 
-func _on_air_body_exited(body):
-	if body.is_in_group("player"):
-		disconnect("hazard_collided",body,"_on_Refresh_hazard_collided")
+func _on_air_body_exited(_body):
 	print('exited')
 	colliding = false

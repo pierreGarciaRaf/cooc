@@ -71,7 +71,7 @@ func setCanReceiveDamage(toSet):
 func die():
 	pass
 
-func _hazard_action(velocity_param):
+func hazard_collided(velocity_param):
 	hazard_velocity+=velocity_param
 
 func update_life_bar():
