@@ -1,0 +1,63 @@
+[gd_scene format=2]
+
+[node name="Control" type="PopupPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.557
+margin_top = -87.8464
+margin_right = 258.443
+margin_bottom = 152.154
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.046
+anchor_top = 0.082
+anchor_right = 0.94
+anchor_bottom = 0.903
+margin_left = 0.621998
+margin_top = 0.32
+margin_right = -0.420013
+margin_bottom = -0.720016
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -236.5
+margin_right = 236.5
+margin_bottom = 146.0
+grow_horizontal = 0
+text = "You finished the level!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -113.0
+margin_top = -57.0
+text = "Exit to menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -57.0
+margin_right = 113.0
+text = "Next level"
+__meta__ = {
+"_edit_use_anchors_": false
+}

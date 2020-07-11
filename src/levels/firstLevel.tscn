@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/world/environment/wall/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/levelScript.gd" type="Script" id=3]
 [ext_resource path="res://src/world/environment/hazard/magnet/magnet-4-81291.png" type="Texture" id=4]
+[ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 147.426, 72.3753 )
 
 [node name="level" type="Node2D"]
 script = ExtResource( 3 )
+levelGoalPath = NodePath("endLevel")
 
 [node name="Cursor" parent="." instance=ExtResource( 2 )]
 
@@ -61,6 +63,9 @@ rotation = 1.5865
 [node name="Wall9" parent="Walls" instance=ExtResource( 1 )]
 position = Vector2( 612.794, 315.783 )
 rotation = 1.5865
+
+[node name="endLevel" parent="." instance=ExtResource( 5 )]
+position = Vector2( 355.572, 490.141 )
 
 [node name="Magnet" type="Node2D" parent="."]
 
