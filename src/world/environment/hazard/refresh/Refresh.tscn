@@ -71,12 +71,11 @@ tracks/0/keys = {
 [node name="Refresh" type="StaticBody2D" groups=[
 "hazard",
 ]]
-position = Vector2( 528.565, 355.727 )
+position = Vector2( 448, 512 )
 input_pickable = true
 collision_layer = 8
 script = ExtResource( 2 )
 AIR_SHAPE = SubResource( 1 )
-gravity_intensity = -40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.86102, 11.4442 )
@@ -88,7 +87,7 @@ priority = 1.0
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="air"]
-position = Vector2( 0, -340 )
+position = Vector2( 0, -250 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -101,7 +100,7 @@ wait_time = 20.0
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 0, -140 )
+position = Vector2( 0, -40 )
 emitting = false
 amount = 40
 lifetime = 1.0

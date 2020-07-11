@@ -1,3 +1,4 @@
+.import/
 logs/
 export/*
 !export/.gitkeep
