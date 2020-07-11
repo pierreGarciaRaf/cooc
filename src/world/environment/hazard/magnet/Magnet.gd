@@ -15,6 +15,8 @@ enum State {
 	BLOWING_OFF
 }
 
+const auto_start=true
+
 func set_air_shape(air_shape):
 	if Engine.editor_hint and air_shape and is_inside_tree():
 		setup_air_shape(air_shape)
@@ -110,7 +112,8 @@ func change_state(new_state):
 		
 
 func _on_Timer_timeout():
-	change_state(State.BLOWING_OFF)
+	if not auto_start:
+		change_state(State.BLOWING_OFF)
 
 func _on_blow_animation_finished():
 	match state:
