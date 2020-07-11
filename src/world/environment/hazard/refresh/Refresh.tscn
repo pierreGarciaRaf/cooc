@@ -9,7 +9,7 @@ extents = Vector2( 100, 200 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 36.2178, 67.9178 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 100, 1, 1 )
 flag_disable_z = true
@@ -68,7 +68,9 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Refresh" type="StaticBody2D"]
+[node name="Refresh" type="StaticBody2D" groups=[
+"hazard",
+]]
 position = Vector2( 528.565, 355.727 )
 input_pickable = true
 collision_layer = 8
@@ -80,7 +82,7 @@ position = Vector2( -2.86102, 11.4442 )
 shape = SubResource( 2 )
 
 [node name="air" type="Area2D" parent="."]
-gravity_vec = Vector2( -2.44921e-15, -40 )
+gravity_vec = Vector2( -2.44929e-15, -40 )
 priority = 1.0
 collision_layer = 4
 
@@ -99,15 +101,15 @@ wait_time = 20.0
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, -140 )
 emitting = false
 amount = 200
-lifetime = 1.0
 speed_scale = 1.16
 randomness = 0.29
 fract_delta = false
 visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
 local_coords = false
-process_material = SubResource( 7 )
+process_material = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 
