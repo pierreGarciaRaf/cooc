@@ -90,4 +90,5 @@ texture = ExtResource( 4 )
 position = Vector2( 367.048, 329.781 )
 z_index = 1
 duration = 2.0
+gravity_intensity = -40
 [connection signal="hazard_collided" from="Refresh" to="Cursor" method="_on_Refresh_hazard_collided"]

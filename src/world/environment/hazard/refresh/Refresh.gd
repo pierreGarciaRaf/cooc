@@ -6,7 +6,7 @@ signal hazard_collided(velocity)
 
 export (Shape2D) onready var AIR_SHAPE setget set_air_shape
 export (float) var duration = 20
-export var gravity_intensity = -40
+export var gravity_intensity = -200
 
 enum State {
 	IDLE,
@@ -66,7 +66,7 @@ func _ready():
 	$Particles2D.position = Vector2.ZERO
 	$Particles2D.process_material = pmaterial
 	$Particles2D.lifetime = air_extents.y * 2 / pmaterial.initial_velocity
-	$Particles2D.amount = 5 * abs(gravity_intensity)
+	$Particles2D.amount = abs(gravity_intensity)
 	
 	if gravity_intensity > 0: 
 		$Particles2D.scale = Vector2(1,-1)

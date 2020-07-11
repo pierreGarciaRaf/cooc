@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/levels/basicLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/world/environment/hazard/refresh/Refresh.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tileset.res" type="TileSet" id=5]
 
 [node name="level" instance=ExtResource( 1 )]
 levelGoalPath = NodePath("goal")
@@ -15,5 +16,14 @@ position = Vector2( 98.3842, 55.4292 )
 position = Vector2( 655.212, 233.007 )
 
 [node name="Refresh" parent="." index="3" instance=ExtResource( 3 )]
-position = Vector2( 319.112, 437.687 )
-rotation = 1.309
+position = Vector2( 111.99, 413.432 )
+rotation = 1.57079
+
+[node name="TileMap" type="TileMap" parent="." index="5" groups=[
+"damage_on_contact",
+]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -65537, 0, 0, 31, 9, 0, 65567, 8, 0, 131103, 8, 0, 196608, 3, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 5, 0, 196613, 5, 0, 196614, 5, 0, 196615, 5, 0, 196616, 5, 0, 196617, 5, 0, 196618, 5, 0, 196619, 5, 0, 196620, 5, 0, 196621, 0, 0, 196622, 1, 0, 196623, 2, 0, 196639, 6, 0, 262144, 8, 0, 262159, 11, 0, 262175, 3, 0, 327680, 8, 0, 327695, 10, 0, 327711, 3, 0, 393216, 8, 0, 393231, 10, 0, 393247, 3, 0, 458752, 8, 0, 458763, 3, 0, 458764, 5, 0, 458765, 5, 0, 458766, 5, 0, 458767, 5, 0, 458768, 5, 0, 458769, 5, 0, 458770, 5, 0, 458771, 5, 0, 458772, 0, 0, 458773, 1, 0, 458774, 2, 0, 458783, 9, 0, 524288, 8, 0, 524299, 8, 0, 524303, 10, 0, 524310, 3, 0, 524311, 5, 0, 524312, 0, 0, 524313, 1, 0, 524314, 2, 0, 524319, 6, 0, 589824, 8, 0, 589835, 8, 0, 589839, 10, 0, 589846, 9, 0, 589850, 11, 0, 589855, 3, 0, 655360, 6, 0, 655361, 5, 0, 655362, 5, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 6, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 5, 0, 655377, 5, 0, 655378, 5, 0, 655379, 5, 0, 655380, 5, 0, 655381, 5, 0, 655382, 8, 0, 655386, 10, 0, 655391, 9, 0, 720918, 6, 0, 720919, 5, 0, 720920, 5, 0, 720921, 5, 0, 720922, 7, 0, 720927, 8, 0, 786463, 8, 0, 851999, 8, 0, 917535, 8, 0, 983071, 8, 0, 1048607, 8, 0, 1114143, 8, 0, 1179679, 6, 0 )
