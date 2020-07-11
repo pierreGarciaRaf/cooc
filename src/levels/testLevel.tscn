@@ -14,8 +14,7 @@ margin_top = -86.5116
 margin_bottom = 153.489
 
 [node name="goal" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 509.14, 165.733 )
-rotation = -1.54053
+position = Vector2( 441.857, 166.156 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="Cursor" parent="." index="2" instance=ExtResource( 2 )]

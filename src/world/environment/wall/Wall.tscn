@@ -5,7 +5,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0199, 32.975 )
 
-[node name="Wall" type="StaticBody2D"]
+[node name="Wall" type="StaticBody2D" groups=[
+"damage_on_contact",
+]]
 scale = Vector2( 4, 1.1 )
 collision_layer = 2
 

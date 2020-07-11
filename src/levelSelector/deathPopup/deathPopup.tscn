@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/levelSelector/endLevel/endLevelPopup.gd" type="Script" id=1]
+[ext_resource path="res://src/levelSelector/deathPopup/deathPopup.gd" type="Script" id=1]
 
-[node name="Control" type="PopupPanel"]
+[node name="deathPopup" type="PopupPanel"]
 pause_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
@@ -23,10 +23,10 @@ anchor_left = 0.046
 anchor_top = 0.082
 anchor_right = 0.94
 anchor_bottom = 0.903
-margin_left = 0.621998
-margin_top = 0.32
-margin_right = -0.420013
-margin_bottom = -0.720016
+margin_left = -16.378
+margin_top = -15.68
+margin_right = 22.58
+margin_bottom = 19.28
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,7 +38,7 @@ margin_left = -236.5
 margin_right = 236.5
 margin_bottom = 146.0
 grow_horizontal = 0
-text = "You finished the level!"
+text = "You are dead"
 align = 1
 valign = 1
 __meta__ = {
@@ -57,15 +57,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="getToNextLevel" type="Button" parent="Control"]
+[node name="restart" type="Button" parent="Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -57.0
 margin_right = 113.0
-text = "Next level"
+text = "Restart level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="about_to_show" from="." to="." method="_on_Control_about_to_show"]
 [connection signal="pressed" from="Control/getToMenu" to="." method="_on_getToMenu_pressed"]
-[connection signal="pressed" from="Control/getToNextLevel" to="." method="_on_getToNextLevel_pressed"]
+[connection signal="pressed" from="Control/restart" to="." method="_on_getToNextLevel_pressed"]
