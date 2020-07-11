@@ -10,10 +10,10 @@
 levelGoalPath = NodePath("goal")
 
 [node name="goal" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 223.064, 549.541 )
+position = Vector2( 193.698, 533.523 )
 
 [node name="Cursor" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 485.088, 426.241 )
+position = Vector2( 68.3747, 46.9352 )
 
 [node name="Refresh" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 34.5974, 436.288 )
