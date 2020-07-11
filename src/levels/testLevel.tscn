@@ -42,3 +42,7 @@ position = Vector2( 256, 0 )
 [node name="Wall3" parent="walls" index="2" instance=ExtResource( 3 )]
 position = Vector2( 640, 0 )
 rotation = 1.5708
+
+[node name="Magnet" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( 66.6357, 165.97 )
+rotation = 1.56289
