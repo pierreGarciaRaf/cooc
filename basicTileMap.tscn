@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tileset.res" type="TileSet" id=1]
+
+[node name="TileMap" type="TileMap" groups=[
+"damage_on_contact",
+]]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 0, 0, 3, 1, 0, 4, 2, 0, 65536, 9, 0, 65540, 11, 0, 131072, 8, 0, 131076, 10, 0, 196608, 6, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 7, 0 )

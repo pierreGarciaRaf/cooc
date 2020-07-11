@@ -82,7 +82,7 @@ position = Vector2( -2.86102, 11.4442 )
 shape = SubResource( 2 )
 
 [node name="air" type="Area2D" parent="."]
-gravity_vec = Vector2( -2.44929e-15, -40 )
+gravity_vec = Vector2( -1.22461e-14, -200 )
 priority = 1.0
 collision_layer = 4
 
@@ -103,7 +103,7 @@ one_shot = true
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 0, -140 )
 emitting = false
-amount = 200
+amount = 1000
 speed_scale = 1.16
 randomness = 0.29
 fract_delta = false
