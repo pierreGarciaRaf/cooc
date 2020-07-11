@@ -8,7 +8,7 @@
 			},
 			"sprites": [
 				{
-					"filename": "gui/winButtonL.png",
+					"filename": "winButtonL.png",
 					"region": {
 						"x": 1,
 						"y": 1,
@@ -23,7 +23,7 @@
 					}
 				},
 				{
-					"filename": "gui/winButtonM.png",
+					"filename": "winButtonM.png",
 					"region": {
 						"x": 11,
 						"y": 1,
@@ -38,7 +38,7 @@
 					}
 				},
 				{
-					"filename": "gui/winButtonR.png",
+					"filename": "winButtonR.png",
 					"region": {
 						"x": 21,
 						"y": 1,
@@ -53,7 +53,7 @@
 					}
 				},
 				{
-					"filename": "gui/winButtonTLC.png",
+					"filename": "winButtonTLC.png",
 					"region": {
 						"x": 31,
 						"y": 1,
@@ -68,7 +68,7 @@
 					}
 				},
 				{
-					"filename": "gui/winD.png",
+					"filename": "winD.png",
 					"region": {
 						"x": 41,
 						"y": 1,
@@ -83,7 +83,7 @@
 					}
 				},
 				{
-					"filename": "gui/winT.png",
+					"filename": "winT.png",
 					"region": {
 						"x": 41,
 						"y": 1,
@@ -98,7 +98,7 @@
 					}
 				},
 				{
-					"filename": "gui/winDLC.png",
+					"filename": "winDLC.png",
 					"region": {
 						"x": 51,
 						"y": 1,
@@ -113,7 +113,7 @@
 					}
 				},
 				{
-					"filename": "gui/winDRC.png",
+					"filename": "winDRC.png",
 					"region": {
 						"x": 61,
 						"y": 1,
@@ -128,7 +128,7 @@
 					}
 				},
 				{
-					"filename": "gui/winL.png",
+					"filename": "winL.png",
 					"region": {
 						"x": 71,
 						"y": 1,
@@ -143,7 +143,7 @@
 					}
 				},
 				{
-					"filename": "gui/winLshade.png",
+					"filename": "winLshade.png",
 					"region": {
 						"x": 81,
 						"y": 1,
@@ -158,7 +158,7 @@
 					}
 				},
 				{
-					"filename": "gui/winR.png",
+					"filename": "winR.png",
 					"region": {
 						"x": 91,
 						"y": 1,
@@ -173,7 +173,7 @@
 					}
 				},
 				{
-					"filename": "gui/winRshade.png",
+					"filename": "winRshade.png",
 					"region": {
 						"x": 101,
 						"y": 1,
@@ -193,6 +193,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:8ea2ca23fa3279a65f414009208fc5d9:86d1025b179970dda4f48c6578e0dc20:22d72128a9f3a99a7d27423de829fed2$"
+		"smartupdate": "$TexturePacker:SmartUpdate:1fb8ece08414a1bb10a06a069c89be23:86d1025b179970dda4f48c6578e0dc20:22d72128a9f3a99a7d27423de829fed2$"
 	}
 }
