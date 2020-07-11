@@ -97,7 +97,7 @@ position = Vector2( 896, 544 )
 position = Vector2( 64, 480 )
 rotation = 0.77079
 gravity_intensity = 200
-lifeTime = 3.0
+lifeTime = 4.5
 
 [node name="Refresh" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( 288, 640 )

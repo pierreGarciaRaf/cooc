@@ -66,11 +66,11 @@ func _ready():
 	
 	# Setup particle material to reflect air area2D
 	var pmaterial = $Particles2D.process_material.duplicate(true)
-	pmaterial.emission_box_extents = Vector3(air_extents.x, 1,1)
+	pmaterial.emission_box_extents = Vector3(air_extents.x, 30,1)
 	$Particles2D.position = Vector2.ZERO
 	$Particles2D.process_material = pmaterial
 	$Particles2D.lifetime = lifeTime
-	$Particles2D.amount = abs(gravity_intensity)
+	$Particles2D.amount = 0.1 * abs(gravity_intensity)
 	
 	if gravity_intensity > 0: 
 		$Particles2D.scale = Vector2(1,-1)
