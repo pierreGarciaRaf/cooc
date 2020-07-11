@@ -151,9 +151,11 @@ var state
 var colliding = false
 
 func _on_air_body_entered(body):
-	print('entered');
-	colliding = true;
+	if body.is_in_group("player"):
+		connect("hazard_collided",body,"_on_Refresh_hazard_collided")
+	print('entered')
+	colliding = true
 
 func _on_air_body_exited(body):
-	print('exited');
-	colliding = false;
+	print('exited')
+	colliding = false

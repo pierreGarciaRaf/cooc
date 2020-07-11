@@ -31,5 +31,5 @@ func _physics_process(delta):
 
 
 func _on_Refresh_hazard_collided(velocity_param):
-	print(velocity)
+	print(velocity_param)
 	hazard_velocity+=velocity_param

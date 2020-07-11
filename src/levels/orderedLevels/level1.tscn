@@ -16,3 +16,4 @@ position = Vector2( 655.212, 233.007 )
 
 [node name="Refresh" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 319.112, 437.687 )
+gravity_intensity = -10
