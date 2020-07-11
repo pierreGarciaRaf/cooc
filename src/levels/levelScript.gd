@@ -1,6 +1,6 @@
 extends Node2D
 
-var endLevelPopupRes = load("res://src/levelSelector/endLevelPopup.tscn")
+
 
 export var levelGoalPath : NodePath
 

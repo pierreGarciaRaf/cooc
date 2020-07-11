@@ -50,3 +50,9 @@ margin_left = 210.0
 margin_right = 311.0
 disabled = false
 text = "filledOnReady"
+
+[node name="buttonToLevel4" parent="Panel/GridContainer" instance=ExtResource( 1 )]
+margin_left = 315.0
+margin_right = 416.0
+disabled = false
+text = "filledOnReady"
