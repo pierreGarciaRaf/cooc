@@ -14,7 +14,8 @@ margin_top = -86.5116
 margin_bottom = 153.489
 
 [node name="goal" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 441.857, 166.156 )
+position = Vector2( 509.14, 165.733 )
+rotation = -1.54053
 scale = Vector2( 0.15, 0.15 )
 
 [node name="Cursor" parent="." index="2" instance=ExtResource( 2 )]
@@ -33,3 +34,7 @@ rotation = 1.5708
 
 [node name="Refresh" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 320, 384 )
+
+[node name="Refresh2" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 701.619, 597.979 )
+rotation = -0.833842

@@ -25,7 +25,7 @@ func set_air_shape(air_shape):
 func get_air_shape():
 	return AIR_SHAPE
 
-var shift_y = - 140; # something like sprite.height/2
+const  Y_SHIFT = - 140; # something like sprite.height/2
 
 func animate_area():
 	var shape = AIR_SHAPE.duplicate()
@@ -39,15 +39,15 @@ func animate_area():
 			anim_duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.interpolate_property($air/CollisionShape2D,"position",
-			Vector2(0, shift_y),
-			Vector2(0, shift_y - AIR_SHAPE.get_extents().y), 
+			Vector2(0, Y_SHIFT),
+			Vector2(0, Y_SHIFT - AIR_SHAPE.get_extents().y), 
 			anim_duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()	
 
 
 func setup_air_shape(air_shape):
-	$air/CollisionShape2D.position = Vector2(0, shift_y - air_shape.get_extents().y)
+	$air/CollisionShape2D.position = Vector2(0, Y_SHIFT - air_shape.get_extents().y)
 	$air/CollisionShape2D.shape=air_shape
 	
 func _ready():
@@ -74,14 +74,13 @@ func _ready():
 		$Particles2D.preprocess = $Particles2D.lifetime
 	else:
 		$Particles2D.scale = Vector2(1,1)
-		#$Particles2D.position = Vector2(0, -70 - air_extents.y*2)
+		$Particles2D.position = Vector2(0, Y_SHIFT)
 		$Particles2D.preprocess = 0
 
 	change_state(State.IDLE)
 
 func _process(_delta):
 	if colliding and state != State.IDLE:
-		print($air.gravity_vec)
 		emit_signal("hazard_collided",$air.gravity_vec)
 
 func change_state(new_state):
