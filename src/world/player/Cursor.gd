@@ -16,7 +16,7 @@ var lifePoint
 var canReceiveDamage = true setget setCanReceiveDamage
 
 
-
+signal die()
 
 func _ready():
 	$CanvasLayer/toReplaceWithSomethingNice.max_value = lifePointPull
@@ -69,7 +69,7 @@ func setCanReceiveDamage(toSet):
 		$damageTimer.start()
 
 func die():
-	pass
+	emit_signal("die")
 
 func hazard_collided(velocity_param):
 	hazard_velocity+=velocity_param

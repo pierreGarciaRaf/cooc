@@ -12,6 +12,7 @@ margin_left = -184.557
 margin_top = -87.8464
 margin_right = 258.443
 margin_bottom = 152.154
+popup_exclusive = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

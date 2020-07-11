@@ -13,11 +13,8 @@ func _on_getToMenu_pressed():
 
 
 func _on_getToNextLevel_pressed():
-	LevelChangeManager.changeToNextLevel()
+	LevelChangeManager.restartLevel()
 	get_tree().paused = false
 
 
-func _on_Control_about_to_show():
-	print("about to show")
-	LevelChangeManager.unlockNextLevel()
 
