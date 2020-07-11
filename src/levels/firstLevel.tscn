@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/world/environment/wall/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/levels/levelScript.gd" type="Script" id=3]
+[ext_resource path="res://src/world/environment/hazard/magnet/magnet-4-81291.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 147.426, 72.3753 )
+
+[node name="level" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Cursor" parent="." instance=ExtResource( 2 )]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 196.612, 223.036 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 198.97, -22.193 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 454.417, -20.2281 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 708.684, -19.0491 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 708.684, -19.0491 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 451.666, 225.001 )
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 720.892, 564.548 )
+
+[node name="Wall12" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 445.378, 567.299 )
+
+[node name="Wall13" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 450.88, 413.245 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 34.6985, 132.647 )
+rotation = 1.5865
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 285.822, 504.813 )
+rotation = 1.5865
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 884.452, 138.418 )
+rotation = 1.5865
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 880.698, 391.249 )
+rotation = 1.5865
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 612.794, 315.783 )
+rotation = 1.5865
+
+[node name="Magnet" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Magnet"]
+position = Vector2( 527.726, 323.895 )
+space_override = 2
+gravity_vec = Vector2( -1, 0 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet/Area2D"]
+position = Vector2( 236.421, 11.7458 )
+shape = SubResource( 1 )
+
+[node name="magnet-4-81291" type="Sprite" parent="Magnet"]
+position = Vector2( 527.726, 323.895 )
+scale = Vector2( 0.40241, 0.280974 )
+texture = ExtResource( 4 )

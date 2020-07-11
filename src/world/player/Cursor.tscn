@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/world/player/Cursor.gd" type="Script" id=1]
+[ext_resource path="res://src/world/player/cursor.png" type="Texture" id=2]
+
+[node name="Cursor" type="KinematicBody2D"]
+position = Vector2( 201.213, 64.4511 )
+scale = Vector2( 0.15, 0.15 )
+input_pickable = true
+collision_mask = 6
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -65, -148.1, -65, -146.8, 113, 30.2, 113, 32.5, 118, 45, 115.7, 45, 114.6, 50, 112.7, 50, 103.7, 57, 98, 57, 59, 58.9, 59, 63, 87, 116.5, 87, 119.7, 89.4, 134, 87, 134, 77, 147, 74.5, 147, 35.5, 169, 32.3, 169, 17, 171.3, 17, 169.1, 5, 161.1, 5, 158.5, -32.1, 94, -36.1, 94, -73.2, 128, -75.6, 128, -89, 130.4, -89, 128, -96, 123, -96, 120.4, -99, 112.4, -99, -140, -97.5, -140, -92, -161, -92, -163.2, -89.9, -164.3 )
