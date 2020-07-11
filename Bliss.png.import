@@ -14,8 +14,8 @@ dest_files=[ "res://.import/Bliss.png-4a2d9bace8932e5748f4aff5707b5dbd.stex" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
+compress/mode=1
+compress/lossy_quality=0.26
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -10,16 +10,16 @@
 [node name="level" instance=ExtResource( 1 )]
 levelGoalPath = NodePath("goal")
 
-[node name="endGamePopup" parent="." index="0"]
-margin_top = -86.5116
-margin_bottom = 153.489
-
 [node name="goal" parent="." index="1" instance=ExtResource( 4 )]
 position = Vector2( 441.857, 166.156 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="Cursor" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 175.851, 153.885 )
+
+[node name="endGamePopup" parent="." index="3"]
+margin_top = -86.5116
+margin_bottom = 153.489
 
 [node name="Refresh" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( 320, 384 )
