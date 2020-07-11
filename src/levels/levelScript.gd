@@ -14,4 +14,6 @@ func _ready():
 
 
 func end_level():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
 	$endGamePopup.popup_centered()
