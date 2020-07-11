@@ -1,35 +1,29 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/world/environment/hazard/magnet/Magnet.gd" type="Script" id=1]
 [ext_resource path="res://src/world/environment/hazard/magnet/magnet.png" type="Texture" id=2]
-[ext_resource path="res://src/world/environment/hazard/magnet/particles/magnetparticle0005.png" type="Texture" id=3]
-[ext_resource path="res://src/world/environment/hazard/magnet/particles/magnetparticle0000.png" type="Texture" id=4]
-[ext_resource path="res://src/world/environment/hazard/magnet/particles/magnetparticle0001.png" type="Texture" id=5]
-[ext_resource path="res://src/world/environment/hazard/magnet/particles/magnetparticle0002.png" type="Texture" id=6]
-[ext_resource path="res://src/world/environment/hazard/magnet/particles/magnetparticle0003.png" type="Texture" id=7]
-[ext_resource path="res://src/world/environment/hazard/magnet/particles/magnetparticle0004.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 300 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 36.2178, 67.9178 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=3]
 min_value = -200.0
 max_value = 200.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=13]
-curve = SubResource( 12 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="Curve" id=14]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0.0446927, 0.314773 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=15]
-curve = SubResource( 14 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=16]
+[sub_resource type="ParticlesMaterial" id=7]
 emission_shape = 2
 emission_box_extents = Vector3( 30, 1, 1 )
 flag_disable_z = true
@@ -41,33 +35,17 @@ initial_velocity_random = 0.07
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 100.0
-linear_accel_curve = SubResource( 13 )
-scale = 10.0
+linear_accel_curve = SubResource( 4 )
+scale = 1.6
 scale_random = 0.5
-scale_curve = SubResource( 15 )
+scale_curve = SubResource( 6 )
 
-[sub_resource type="AnimatedTexture" id=10]
-frames = 6
-frame_0/texture = ExtResource( 4 )
-frame_1/texture = ExtResource( 5 )
-frame_1/delay_sec = 0.0
-frame_2/texture = ExtResource( 6 )
-frame_2/delay_sec = 0.0
-frame_3/texture = ExtResource( 7 )
-frame_3/delay_sec = 0.0
-frame_4/texture = ExtResource( 8 )
-frame_4/delay_sec = 0.0
-frame_5/texture = ExtResource( 3 )
-frame_5/delay_sec = 0.0
-
-[sub_resource type="Animation" id=4]
-resource_name = "blowing"
+[sub_resource type="Animation" id=8]
 loop = true
 
-[sub_resource type="Animation" id=5]
-resource_name = "blowing_off"
+[sub_resource type="Animation" id=9]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
 
 [node name="Magnet" type="StaticBody2D" groups=[
 "hazard",
@@ -76,7 +54,7 @@ position = Vector2( 528.565, 355.727 )
 input_pickable = true
 collision_layer = 8
 script = ExtResource( 1 )
-AIR_SHAPE = SubResource( 11 )
+AIR_SHAPE = SubResource( 1 )
 gravity_intensity = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -84,18 +62,17 @@ position = Vector2( -2.86102, 11.4442 )
 shape = SubResource( 2 )
 
 [node name="air" type="Area2D" parent="."]
-gravity_vec = Vector2( 2.44921e-15, 40 )
+gravity_vec = Vector2( 2.44929e-15, 40 )
 priority = 1.0
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="air"]
 position = Vector2( 0, -340 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.577942, 0.578003 )
 scale = Vector2( 4, 4 )
-z_index = -1
 texture = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -114,15 +91,14 @@ randomness = 0.29
 fract_delta = false
 visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
 local_coords = false
-process_material = SubResource( 16 )
-texture = SubResource( 10 )
+process_material = SubResource( 7 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blowing = SubResource( 4 )
-anims/blowing_off = SubResource( 5 )
-anims/blowing_on = SubResource( 6 )
+anims/blowing = SubResource( 8 )
+anims/blowing_off = SubResource( 9 )
+anims/blowing_on = SubResource( 10 )
 [connection signal="input_event" from="." to="." method="_on_Pipe_input_event"]
 [connection signal="body_entered" from="air" to="." method="_on_air_body_entered"]
 [connection signal="body_exited" from="air" to="." method="_on_air_body_exited"]
