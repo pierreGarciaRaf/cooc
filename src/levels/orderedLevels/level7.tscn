@@ -83,7 +83,6 @@ texture = ExtResource( 8 )
 
 [node name="goal" parent="." index="14" instance=ExtResource( 5 )]
 position = Vector2( 64, 480 )
-scale = Vector2( 1, 1 )
 
 [node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
 position = Vector2( 160, 32 )
