@@ -11,13 +11,13 @@ uniform sampler2D BSOD;
 uniform sampler2D NOISE;
 uniform float threshold = 0.5;
 uniform float pixel_size = 0.1;
+
 void fragment()
 {	
-	vec4 original = texture(TEXTURE,UV);
 	vec2 pixels = trunc(UV/pixel_size)*pixel_size;
 	float noise = texture(NOISE,pixels).x;
 	if (noise < threshold) {
-		COLOR = texture(BSOD,UV + vec2(0.012,0.015));
+		COLOR = texture(BSOD,UV + vec2(0.012,0.015)); // to minimize top right black pixels
 	} else {
 		COLOR = vec4(1.0,1.0,1.0,0.0);
 	}
