@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/world/environment/bsod/BSoD.gd" type="Script" id=1]
 [ext_resource path="res://src/world/environment/crt/white.png" type="Texture" id=2]
@@ -9,18 +9,21 @@ code = "shader_type canvas_item;
 
 uniform sampler2D BSOD;
 uniform sampler2D NOISE;
+uniform sampler2D NOISY_NOISE;
 uniform float threshold = 0.5;
 uniform float pixel_size = 0.1;
 
 void fragment()
-{	
+{
 	vec2 pixels = trunc(UV/pixel_size)*pixel_size;
 	float noise = texture(NOISE,pixels).x;
-	if (noise < threshold) {
-		COLOR = texture(BSOD,UV + vec2(0.012,0.015)); // to minimize top right black pixels
-	} else {
-		COLOR = vec4(1.0,1.0,1.0,0.0);
-	}
+	float time = 4.0*fract(sin(TIME)*1000.0);
+	mat2 multMatrix = mat2(vec2(0.1*sin(time),cos(time)),vec2(0.1*-cos(time),sin(time)));
+	float noisy_noise = texture(NOISY_NOISE,multMatrix*UV).x;
+	float isBDoD = step(1.6 * noise * noisy_noise,threshold);
+	
+	COLOR = isBDoD * texture(BSOD,UV + vec2(0.012,0.015)) +(1.0-isBDoD) * vec4(1.0,1.0,1.0,0.0); // to minimize top right black pixels
+	
 }
 "
 custom_defines = ""
@@ -34,15 +37,24 @@ width = 64
 height = 38
 noise = SubResource( 2 )
 
+[sub_resource type="OpenSimplexNoise" id=5]
+period = 1.3
+persistence = 0.0
+lacunarity = 0.12
+
+[sub_resource type="NoiseTexture" id=6]
+noise = SubResource( 5 )
+
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 1 )
-shader_param/threshold = 0.4
+shader_param/threshold = 0.0
 shader_param/pixel_size = 0.1
 shader_param/BSOD = ExtResource( 3 )
 shader_param/NOISE = SubResource( 3 )
+shader_param/NOISY_NOISE = SubResource( 6 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "crash"
+[sub_resource type="Animation" id=7]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/threshold")
 tracks/0/interp = 1
@@ -50,7 +62,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -69,5 +81,5 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/crash = SubResource( 5 )
+anims/crash = SubResource( 7 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
