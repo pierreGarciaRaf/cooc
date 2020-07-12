@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tileset.res" type="TileSet" id=1]
 [ext_resource path="res://src/world/environment/goal/completeText.tscn" type="PackedScene" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://src/world/environment/ads/BUYad.png" type="Texture" id=8]
 [ext_resource path="res://src/world/environment/ads/strangerdangerad.png" type="Texture" id=9]
 [ext_resource path="res://src/world/environment/ads/beetlead.png" type="Texture" id=10]
+[ext_resource path="res://src/world/environment/ads/endnighad.png" type="Texture" id=11]
+[ext_resource path="res://src/world/environment/ads/hellovaad.png" type="Texture" id=12]
+[ext_resource path="res://src/world/environment/ads/dl2.png" type="Texture" id=13]
+[ext_resource path="res://src/world/environment/ads/voidad.png" type="Texture" id=14]
+[ext_resource path="res://src/world/environment/ads/pyramidad.png" type="Texture" id=15]
 
 [node name="level" instance=ExtResource( 3 )]
 
@@ -27,21 +32,32 @@ texture = ExtResource( 10 )
 [node name="Bottom" parent="walls" index="1"]
 position = Vector2( 480, 608 )
 
-[node name="Cursor" parent="." index="6" instance=ExtResource( 4 )]
-position = Vector2( 992, 576 )
-
-[node name="WWW" parent="." index="7" instance=ExtResource( 6 )]
+[node name="WWW" parent="." index="6" instance=ExtResource( 6 )]
 position = Vector2( 320, 256 )
 radius = 200.0
 gravity_intensity = 100
 
-[node name="goal" parent="." index="8" instance=ExtResource( 5 )]
-position = Vector2( 64, 480 )
+[node name="endnighad2" type="Sprite" parent="." index="7"]
+position = Vector2( 944, 256 )
+scale = Vector2( 0.4, 1.6 )
+texture = ExtResource( 12 )
 
-[node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
-position = Vector2( 160, 32 )
+[node name="pyramidad" type="Sprite" parent="." index="8"]
+position = Vector2( -24, 256 )
+scale = Vector2( 0.466667, 0.8 )
+texture = ExtResource( 15 )
 
-[node name="TileMap" type="TileMap" parent="." index="9" groups=[
+[node name="dl2" type="Sprite" parent="pyramidad" index="0"]
+position = Vector2( -120, -240 )
+scale = Vector2( 8.57143, 5 )
+texture = ExtResource( 13 )
+
+[node name="endnighad3" type="Sprite" parent="." index="9"]
+position = Vector2( 656, 480 )
+scale = Vector2( 0.4, 0.8 )
+texture = ExtResource( 14 )
+
+[node name="TileMap" type="TileMap" parent="." index="10" groups=[
 "damage_on_contact",
 ]]
 scale = Vector2( 4, 4 )
@@ -50,12 +66,27 @@ cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 65531, 536870915, 0, 65532, 5, 0, 65533, 0, 0, 65534, 1, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 20, 7, 0, 24, 536870915, 0, 25, 5, 0, 26, 0, 0, 27, 1, 0, 28, 536870914, 0, 131067, 9, 0, 131071, 11, 0, 65560, 9, 0, 65563, 536870915, 0, 65564, 11, 0, 65565, 0, 0, 65566, 1, 0, 65567, 536870914, 0, 196603, 8, 0, 196607, 10, 0, 131096, 8, 0, 131099, 9, 0, 131100, 10, 0, 131103, 11, 0, 262139, 6, 0, 262140, 5, 0, 262141, 5, 0, 262142, 5, 0, 262143, 7, 0, 196632, 8, 0, 196635, 8, 0, 196636, 10, 0, 196639, 10, 0, 327679, 536870912, 0, 262144, 536870913, 0, 262145, 536870914, 0, 262168, 8, 0, 262171, 8, 0, 262172, 10, 0, 262175, 10, 0, 327681, 10, 0, 327704, 8, 0, 327707, 8, 0, 327708, 10, 0, 327711, 10, 0, 393217, 10, 0, 393240, 8, 0, 393243, 8, 0, 393244, 10, 0, 393247, 10, 0, 458753, 10, 0, 458776, 6, 0, 458777, 5, 0, 458778, 5, 0, 458779, 5, 0, 458780, 7, 0, 458783, 10, 0, 524289, 10, 0, 524315, 8, 0, 524319, 10, 0, 589825, 10, 0, 589851, 8, 0, 589855, 10, 0, 655361, 10, 0, 655387, 8, 0, 655391, 10, 0, 720896, 5, 0, 720897, 7, 0, 720904, 536870915, 0, 720905, 5, 0, 720906, 0, 0, 720907, 1, 0, 720908, 536870914, 0, 720914, 536870915, 0, 720915, 5, 0, 720916, 0, 0, 720917, 1, 0, 720918, 536870914, 0, 720923, 8, 0, 720927, 10, 0, 786440, 9, 0, 786444, 11, 0, 786450, 9, 0, 786454, 11, 0, 786459, 8, 0, 786463, 10, 0, 851976, 8, 0, 851980, 10, 0, 851981, 536870916, 0, 851982, 536870916, 0, 851983, 536870916, 0, 851984, 536870916, 0, 851985, 536870916, 0, 851986, 8, 0, 851990, 10, 0, 851995, 8, 0, 851999, 10, 0, 917512, 8, 0, 917516, 10, 0, 917522, 8, 0, 917526, 10, 0, 917531, 6, 0, 917532, 5, 0, 917533, 5, 0, 917534, 5, 0, 917535, 7, 0, 983048, 8, 0, 983052, 10, 0, 983058, 8, 0, 983062, 10, 0, 1048584, 8, 0, 1048588, 10, 0, 1048594, 8, 0, 1048598, 10, 0, 1114113, 536870915, 0, 1114114, 5, 0, 1114115, 5, 0, 1114116, 5, 0, 1114117, 5, 0, 1114118, 5, 0, 1114119, 5, 0, 1114120, 8, 0, 1114121, 5, 0, 1114122, 5, 0, 1114123, 5, 0, 1114124, 10, 0, 1114125, 1, 0, 1114126, 536870914, 0, 1114130, 8, 0, 1114134, 10, 0, 1179649, 8, 0, 1179656, 6, 0, 1179657, 5, 0, 1179658, 5, 0, 1179659, 5, 0, 1179660, 7, 0, 1179662, 10, 0, 1179666, 6, 0, 1179667, 5, 0, 1179668, 5, 0, 1179669, 5, 0, 1179670, 7, 0, 1245185, 8, 0, 1245198, 10, 0, 1310734, 10, 0 )
 
-[node name="Refresh" parent="." index="10" instance=ExtResource( 7 )]
+[node name="endnighad" type="Sprite" parent="." index="11"]
+position = Vector2( 848, 128 )
+scale = Vector2( 0.4, 0.8 )
+texture = ExtResource( 11 )
+
+[node name="Refresh" parent="." index="12" instance=ExtResource( 7 )]
 position = Vector2( 672, 0 )
 rotation = 3.14159
 gravity_intensity = -500
 
-[node name="BUYad" type="Sprite" parent="." index="11"]
+[node name="BUYad" type="Sprite" parent="." index="13"]
 position = Vector2( 336, 480 )
 scale = Vector2( 0.4, 0.8 )
 texture = ExtResource( 8 )
+
+[node name="goal" parent="." index="14" instance=ExtResource( 5 )]
+position = Vector2( 64, 480 )
+scale = Vector2( 1, 1 )
+
+[node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
+position = Vector2( 160, 32 )
+
+[node name="Cursor" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( 992, 576 )

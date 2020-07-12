@@ -17,38 +17,38 @@ extents = Vector2( 50, 100 )
 
 [node name="level" instance=ExtResource( 3 )]
 
-[node name="goal" parent="." index="1" instance=ExtResource( 5 )]
-position = Vector2( 832, 64 )
-
-[node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
-position = Vector2( -128, 32 )
-
-[node name="dl2" type="Sprite" parent="." index="2"]
+[node name="dl2" type="Sprite" parent="." index="1"]
 position = Vector2( 80, 64 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
 
-[node name="itchio card" type="Sprite" parent="." index="3"]
+[node name="itchio card" type="Sprite" parent="." index="2"]
 position = Vector2( 592, 416 )
 scale = Vector2( 2.95035, 3.2 )
 texture = ExtResource( 7 )
 
-[node name="WWW" parent="." index="7" instance=ExtResource( 10 )]
+[node name="WWW" parent="." index="6" instance=ExtResource( 10 )]
 position = Vector2( 576, 512 )
 rotation = -0.52851
 radius = 500.0
 gravity_intensity = 100
 
-[node name="Refresh" parent="." index="8" instance=ExtResource( 9 )]
+[node name="Refresh" parent="." index="7" instance=ExtResource( 9 )]
 position = Vector2( 128, 608 )
 rotation = -0.00898632
 AIR_SHAPE = SubResource( 1 )
 gravity_intensity = -800
 
-[node name="Refresh2" parent="." index="9" instance=ExtResource( 9 )]
+[node name="Refresh2" parent="." index="8" instance=ExtResource( 9 )]
 position = Vector2( 352, 480 )
 rotation = -0.286537
 gravity_intensity = -800
+
+[node name="goal" parent="." index="9" instance=ExtResource( 5 )]
+position = Vector2( 800, 32 )
+
+[node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
+position = Vector2( -128, 32 )
 
 [node name="Cursor" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 128, 544 )
@@ -68,6 +68,14 @@ scale = Vector2( 5.33333, 6 )
 texture = ExtResource( 8 )
 
 [node name="Magnet" parent="." index="13" instance=ExtResource( 11 )]
-position = Vector2( 896, 3.05176e-05 )
-rotation = -1.90933
+position = Vector2( 928, -3.05176e-05 )
+rotation = -1.92334
 gravity_intensity = 500
+
+[node name="Magnet2" parent="." index="14" instance=ExtResource( 11 )]
+position = Vector2( 800, -64 )
+rotation = -2.1862
+gravity_intensity = 500
+
+[node name="Control" parent="." index="15"]
+visible = false

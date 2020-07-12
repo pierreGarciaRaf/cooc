@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tileset.res" type="TileSet" id=1]
 [ext_resource path="res://src/world/environment/goal/completeText.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/world/environment/ads/beetlead.png" type="Texture" id=8]
 [ext_resource path="res://src/world/environment/ads/voidad.png" type="Texture" id=9]
 [ext_resource path="res://src/world/environment/ads/dl3.png" type="Texture" id=10]
+[ext_resource path="res://src/world/environment/ads/pyramidad.png" type="Texture" id=11]
 
 [node name="level" instance=ExtResource( 3 )]
 
@@ -56,7 +57,15 @@ position = Vector2( 512, 352 )
 radius = 410.0
 gravity_intensity = 100
 
+[node name="pyramidad" type="Sprite" parent="." index="12"]
+position = Vector2( 800, 736 )
+scale = Vector2( 1.6, 1.06667 )
+texture = ExtResource( 11 )
+
 [node name="voidad2" type="Sprite" parent="." index="13"]
 position = Vector2( -32, 384 )
 scale = Vector2( 0.533333, 1.6 )
 texture = ExtResource( 9 )
+
+[node name="Control" parent="." index="14"]
+visible = false

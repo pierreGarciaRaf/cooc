@@ -17,23 +17,17 @@
 [node name="level" instance=ExtResource( 1 )]
 levelGoalPath = NodePath("goal")
 
-[node name="goal" parent="." index="1" instance=ExtResource( 4 )]
-position = Vector2( 192.857, 533.523 )
-
-[node name="Cursor" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 68.3747, 46.9352 )
-
-[node name="Sprite" type="Sprite" parent="." index="4"]
+[node name="Sprite" type="Sprite" parent="." index="2"]
 position = Vector2( 63.5842, 416.779 )
 scale = Vector2( 1.27162, 1.29807 )
 texture = ExtResource( 6 )
 
-[node name="beetlead" type="Sprite" parent="." index="5"]
+[node name="beetlead" type="Sprite" parent="." index="3"]
 position = Vector2( 257.43, 225.163 )
 scale = Vector2( 1.87926, 0.794215 )
 texture = ExtResource( 8 )
 
-[node name="TileMap" type="TileMap" parent="." index="6" groups=[
+[node name="TileMap" type="TileMap" parent="." index="4" groups=[
 "damage_on_contact",
 ]]
 scale = Vector2( 4, 4 )
@@ -42,36 +36,42 @@ cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 20, 8, 0, 31, 9, 0, 65556, 8, 0, 65567, 8, 0, 131092, 6, 0, 131093, 5, 0, 131094, 5, 0, 131095, 5, 0, 131096, 5, 0, 131097, 5, 0, 131098, 5, 0, 131099, 5, 0, 131100, 5, 0, 131101, 5, 0, 131102, 5, 0, 131103, 8, 0, 196608, 3, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 5, 0, 196613, 5, 0, 196614, 5, 0, 196615, 5, 0, 196616, 5, 0, 196617, 5, 0, 196618, 5, 0, 196619, 5, 0, 196620, 5, 0, 196621, 0, 0, 196622, 1, 0, 196623, 2, 0, 196639, 6, 0, 262144, 8, 0, 262159, 11, 0, 262175, 3, 0, 327680, 8, 0, 327695, 10, 0, 327711, 3, 0, 393216, 8, 0, 393231, 10, 0, 393247, 3, 0, 458752, 8, 0, 458763, 3, 0, 458764, 5, 0, 458765, 5, 0, 458766, 5, 0, 458767, 5, 0, 458768, 5, 0, 458769, 5, 0, 458770, 5, 0, 458771, 5, 0, 458772, 0, 0, 458773, 1, 0, 458774, 2, 0, 458783, 9, 0, 524288, 8, 0, 524299, 8, 0, 524303, 10, 0, 524310, 3, 0, 524311, 5, 0, 524312, 0, 0, 524313, 1, 0, 524314, 2, 0, 524319, 6, 0, 589824, 8, 0, 589835, 8, 0, 589839, 10, 0, 589846, 9, 0, 589850, 11, 0, 589855, 3, 0, 720895, 5, 0, 655360, 6, 0, 655361, 5, 0, 655362, 5, 0, 655363, 5, 0, 655364, 5, 0, 655365, 5, 0, 655366, 5, 0, 655367, 5, 0, 655368, 5, 0, 655369, 5, 0, 655370, 5, 0, 655371, 6, 0, 655372, 5, 0, 655373, 5, 0, 655374, 5, 0, 655375, 5, 0, 655376, 5, 0, 655377, 5, 0, 655378, 5, 0, 655379, 5, 0, 655380, 5, 0, 655381, 5, 0, 655382, 8, 0, 655386, 10, 0, 655391, 9, 0, 786431, 5, 0, 720896, 3, 0, 720897, 0, 0, 720898, 1, 0, 720899, 2, 0, 720918, 6, 0, 720919, 5, 0, 720920, 5, 0, 720921, 5, 0, 720922, 7, 0, 720927, 8, 0, 851967, 5, 0, 786432, 8, 0, 786435, 11, 0, 786463, 8, 0, 917503, 5, 0, 851968, 8, 0, 851971, 10, 0, 851999, 8, 0, 983039, 5, 0, 917504, 6, 0, 917505, 5, 0, 917506, 5, 0, 917507, 7, 0, 917535, 8, 0, 1048575, 5, 0, 983040, 5, 0, 983041, 5, 0, 983042, 0, 0, 983043, 1, 0, 983044, 2, 0, 983071, 8, 0, 1048580, 11, 0, 1048585, 3, 0, 1048586, 5, 0, 1048587, 5, 0, 1048588, 5, 0, 1048589, 5, 0, 1048590, 5, 0, 1048591, 5, 0, 1048592, 5, 0, 1048593, 5, 0, 1048594, 5, 0, 1048595, 5, 0, 1048596, 5, 0, 1048597, 5, 0, 1048598, 5, 0, 1048599, 5, 0, 1048600, 5, 0, 1048601, 5, 0, 1048602, 5, 0, 1048603, 5, 0, 1048604, 0, 0, 1048605, 1, 0, 1048606, 2, 0, 1048607, 8, 0, 1114116, 10, 0, 1114121, 9, 0, 1114142, 10, 0, 1114143, 8, 0, 1179652, 10, 0, 1179657, 9, 0, 1179678, 10, 0, 1179679, 6, 0 )
 
-[node name="Refresh" parent="." index="7" instance=ExtResource( 3 )]
+[node name="Refresh" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 63.5756, 417.389 )
 rotation = 1.57079
 scale = Vector2( 0.918434, 0.803631 )
 gravity_intensity = -500
 
-[node name="Node2D" parent="." index="10" instance=ExtResource( 7 )]
-position = Vector2( 341.804, 551.898 )
-
-[node name="BUYad" type="Sprite" parent="." index="11"]
+[node name="BUYad" type="Sprite" parent="." index="8"]
 position = Vector2( 831.514, -54.4864 )
 scale = Vector2( 1.33199, 0.995045 )
 texture = ExtResource( 9 )
 
-[node name="dl2" type="Sprite" parent="." index="12"]
+[node name="dl2" type="Sprite" parent="." index="9"]
 position = Vector2( 783.987, 319.899 )
 scale = Vector2( 4.00295, 3.92136 )
 texture = ExtResource( 10 )
 
-[node name="adram" type="Sprite" parent="." index="13"]
+[node name="adram" type="Sprite" parent="." index="10"]
 position = Vector2( -32, 672 )
 scale = Vector2( 1.33333, 1.33333 )
 texture = ExtResource( 13 )
 
-[node name="strangerdangerad" type="Sprite" parent="." index="14"]
+[node name="strangerdangerad" type="Sprite" parent="." index="11"]
 position = Vector2( 640, 736 )
 scale = Vector2( 2.66667, 1.6 )
 texture = ExtResource( 11 )
 
-[node name="voidad" type="Sprite" parent="." index="15"]
+[node name="voidad" type="Sprite" parent="." index="12"]
 position = Vector2( 544, 288 )
 scale = Vector2( 1.33333, 0.266667 )
 texture = ExtResource( 12 )
+
+[node name="goal" parent="." index="13" instance=ExtResource( 4 )]
+position = Vector2( 192.857, 533.523 )
+
+[node name="Node2D" parent="goal" index="2" instance=ExtResource( 7 )]
+position = Vector2( 148.947, 18.375 )
+
+[node name="Cursor" parent="." index="14" instance=ExtResource( 2 )]
+position = Vector2( 68.3747, 46.9352 )

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/world/environment/crt/white.png" type="Texture" id=1]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 // Shader from https://github.com/henriquelalves/SimpleGodotCRTShader
 
@@ -72,8 +72,8 @@ void fragment()
 "
 custom_defines = ""
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/screen_width = 1024.0
 shader_param/screen_height = 600.0
 shader_param/BarrelPower = 1.1
@@ -86,7 +86,7 @@ shader_param/scanline_alpha = 0.9
 shader_param/lines_velocity = 30.0
 
 [node name="CRT" type="TextureRect"]
-material = SubResource( 2 )
+material = SubResource( 6 )
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 1 )
