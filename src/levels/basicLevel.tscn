@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/levelSelector/endLevel/endLevelPopup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/levels/levelScript.gd" type="Script" id=2]
 [ext_resource path="res://src/levelSelector/deathPopup/deathPopup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Bliss.png" type="Texture" id=4]
+[ext_resource path="res://src/world/environment/bsod/BSoD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/world/environment/crt/CRT.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 864, 10 )
@@ -40,3 +42,18 @@ shape = SubResource( 1 )
 position = Vector2( 1032, 288 )
 rotation = 1.57079
 shape = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BSoD" parent="Control" instance=ExtResource( 5 )]
+
+[node name="CRT" parent="Control" instance=ExtResource( 6 )]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 1088.0
+margin_bottom = 664.0

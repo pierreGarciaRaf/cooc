@@ -13,33 +13,33 @@ uniform float threshold = 0.5;
 uniform float pixel_size = 0.1;
 void fragment()
 {	
-	vec4 original = texture(SCREEN_TEXTURE,SCREEN_UV);
+	vec4 original = texture(TEXTURE,UV);
 	vec2 pixels = trunc(UV/pixel_size)*pixel_size;
 	float noise = texture(NOISE,pixels).x;
 	if (noise < threshold) {
-		COLOR = texture(BSOD,UV);
+		COLOR = texture(BSOD,UV + vec2(0.012,0.015));
 	} else {
-		COLOR = original;
+		COLOR = vec4(1.0,1.0,1.0,0.0);
 	}
 }
 "
 custom_defines = ""
 
-[sub_resource type="OpenSimplexNoise" id=3]
+[sub_resource type="OpenSimplexNoise" id=2]
 period = 4.0
 lacunarity = 2.94
 
-[sub_resource type="NoiseTexture" id=4]
+[sub_resource type="NoiseTexture" id=3]
 width = 64
 height = 38
-noise = SubResource( 3 )
+noise = SubResource( 2 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 1 )
 shader_param/threshold = 0.4
 shader_param/pixel_size = 0.1
 shader_param/BSOD = ExtResource( 3 )
-shader_param/NOISE = SubResource( 4 )
+shader_param/NOISE = SubResource( 3 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "crash"
@@ -58,7 +58,7 @@ tracks/0/keys = {
 
 [node name="BSoD" type="TextureRect"]
 pause_mode = 2
-material = SubResource( 2 )
+material = SubResource( 4 )
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 2 )
@@ -68,12 +68,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
-pause_mode = 2
-process_mode = 0
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/crash = SubResource( 5 )
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

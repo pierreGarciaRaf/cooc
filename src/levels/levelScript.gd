@@ -4,6 +4,7 @@ extends Node2D
 
 export var levelGoalPath : NodePath
 
+var control
 var Crt = load('res://src/world/environment/crt/CRT.tscn')
 var BSoD = load('res://src/world/environment/bsod/BSoD.tscn')
 
@@ -20,9 +21,7 @@ func _ready():
 	
 	if levelGoalPath != null:
 		find_node("goal").connect("end_level",self,"end_level")
-		
-	self.add_child(Crt.instance())
-
+	$Control/BSoD.visible = false
 
 func end_level():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -31,9 +30,8 @@ func end_level():
 
 func player_dies():
 	get_tree().paused = true
-	var bsod = BSoD.instance()
-	self.add_child(bsod)
-	bsod.connect('bsod_completed', self, 'bsod_completed')
+	$Control/BSoD.start()
+	$Control/BSoD.connect('bsod_completed', self, 'bsod_completed')
 
 func bsod_completed():
 	print('bsod completed')
