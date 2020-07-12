@@ -19,7 +19,9 @@ tracks/0/keys = {
 }
 
 [node name="Warning" type="Sprite"]
+pause_mode = 2
 modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

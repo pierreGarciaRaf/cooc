@@ -23,7 +23,6 @@ signal die()
 
 func _ready():
 	hoveringUpdate(false)
-	$CanvasLayer/toReplaceWithSomethingNice.max_value = lifePointPull
 	lifePoint = lifePointPull
 
 func _input(event):
@@ -90,7 +89,9 @@ func setCanReceiveDamage(toSet):
 	modulateSprites(Color(1,1,1,1) if canReceiveDamage else Color(1,0,0,1))
 	if not canReceiveDamage:
 		var warning = Warning.instance()
-		self.add_child(warning)
+		warning.position = self.global_position
+		get_parent().add_child(warning)
+		
 		warning.connect('warning_disappeared',self,'warning_disappeared')
 		warning.start()
 
@@ -105,7 +106,7 @@ func hazard_collided(velocity_param):
 	hazard_velocity+=velocity_param
 
 func update_life_bar():
-	$CanvasLayer/toReplaceWithSomethingNice.value = lifePoint
+	(get_node("CanvasLayer/crit" + String(lifePoint+1)) as TextureRect).texture = load("res://src/world/player/critical.png")
 
 
 func hoveringUpdate(isHovering):
