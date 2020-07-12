@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/levels/basicLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://src/world/environment/ads/beetlead.png" type="Texture" id=8]
 [ext_resource path="res://src/world/environment/ads/BUYad.png" type="Texture" id=9]
 [ext_resource path="res://src/world/environment/ads/dl2.png" type="Texture" id=10]
+[ext_resource path="res://src/world/environment/ads/strangerdangerad.png" type="Texture" id=11]
+[ext_resource path="res://src/world/environment/ads/voidad.png" type="Texture" id=12]
+[ext_resource path="res://src/world/environment/ads/adram.png" type="Texture" id=13]
 
 [node name="level" instance=ExtResource( 1 )]
 levelGoalPath = NodePath("goal")
@@ -57,3 +60,18 @@ texture = ExtResource( 9 )
 position = Vector2( 783.987, 319.899 )
 scale = Vector2( 4.00295, 3.92136 )
 texture = ExtResource( 10 )
+
+[node name="adram" type="Sprite" parent="." index="13"]
+position = Vector2( -32, 672 )
+scale = Vector2( 1.33333, 1.33333 )
+texture = ExtResource( 13 )
+
+[node name="strangerdangerad" type="Sprite" parent="." index="14"]
+position = Vector2( 640, 736 )
+scale = Vector2( 2.66667, 1.6 )
+texture = ExtResource( 11 )
+
+[node name="voidad" type="Sprite" parent="." index="15"]
+position = Vector2( 544, 288 )
+scale = Vector2( 1.33333, 0.266667 )
+texture = ExtResource( 12 )

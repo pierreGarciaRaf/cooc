@@ -44,7 +44,7 @@ func updateCanReceiveDamage():
 			setCanReceiveDamage(true)
 
 func playDamage():
-	$damagePlayer.pitch_scale = 3*randf()-1.5
+	$damagePlayer.pitch_scale = 1.5*randf()+0.20
 	$damagePlayer.play(0)
 
 func _physics_process(delta):

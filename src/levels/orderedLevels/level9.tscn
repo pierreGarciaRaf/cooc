@@ -1,27 +1,73 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tileset.res" type="TileSet" id=1]
 [ext_resource path="res://src/world/environment/goal/completeText.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/basicLevel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/world/player/Cursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/world/environment/goal/goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/world/environment/ads/dl3.png" type="Texture" id=6]
+[ext_resource path="res://src/world/environment/ads/itchio card.png" type="Texture" id=7]
+[ext_resource path="res://src/world/environment/ads/dl1.png" type="Texture" id=8]
+[ext_resource path="res://src/world/environment/hazard/refresh/Refresh.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/world/environment/hazard/worldWideWeb/WWW.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/world/environment/hazard/magnet/Magnet.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 100 )
 
 [node name="level" instance=ExtResource( 3 )]
 
-[node name="Cursor" parent="." index="4" instance=ExtResource( 4 )]
-position = Vector2( 128, 544 )
-
-[node name="goal" parent="." index="5" instance=ExtResource( 5 )]
-position = Vector2( 960, 32 )
+[node name="goal" parent="." index="1" instance=ExtResource( 5 )]
+position = Vector2( 832, 64 )
 
 [node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
 position = Vector2( -128, 32 )
 
-[node name="TileMap" type="TileMap" parent="." index="6" groups=[
+[node name="dl2" type="Sprite" parent="." index="2"]
+position = Vector2( 80, 64 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+
+[node name="itchio card" type="Sprite" parent="." index="3"]
+position = Vector2( 592, 416 )
+scale = Vector2( 2.95035, 3.2 )
+texture = ExtResource( 7 )
+
+[node name="WWW" parent="." index="7" instance=ExtResource( 10 )]
+position = Vector2( 576, 512 )
+rotation = -0.52851
+radius = 500.0
+gravity_intensity = 100
+
+[node name="Refresh" parent="." index="8" instance=ExtResource( 9 )]
+position = Vector2( 128, 608 )
+rotation = -0.00898632
+AIR_SHAPE = SubResource( 1 )
+gravity_intensity = -800
+
+[node name="Refresh2" parent="." index="9" instance=ExtResource( 9 )]
+position = Vector2( 352, 480 )
+rotation = -0.286537
+gravity_intensity = -800
+
+[node name="Cursor" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 128, 544 )
+
+[node name="TileMap" type="TileMap" parent="." index="11" groups=[
 "damage_on_contact",
 ]]
 scale = Vector2( 4, 4 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 0, 0, 3, 1, 0, 4, 2, 0, 65536, 9, 0, 65540, 11, 0, 131072, 8, 0, 131076, 10, 0, 196608, 6, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 7, 0 )
+tile_data = PoolIntArray( 0, 3, 0, 1, 5, 0, 2, 0, 0, 3, 1, 0, 4, 2, 0, 65536, 9, 0, 65540, 11, 0, 131072, 8, 0, 131076, 10, 0, 196608, 6, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 7, 0, 524299, 3, 0, 524300, 5, 0, 524301, 5, 0, 524302, 5, 0, 524303, 5, 0, 524304, 5, 0, 524305, 5, 0, 524306, 5, 0, 524307, 5, 0, 524308, 5, 0, 524309, 5, 0, 524310, 5, 0, 524311, 0, 0, 524312, 1, 0, 524313, 2, 0, 589835, 9, 0, 589849, 10, 0, 655371, 8, 0, 655385, 10, 0, 720907, 8, 0, 720921, 10, 0, 786443, 8, 0, 786457, 10, 0, 851979, 8, 0, 851993, 10, 0, 917515, 8, 0, 917529, 10, 0, 983050, 3, 0, 983051, 5, 0, 983052, 5, 0, 983053, 0, 0, 983054, 1, 0, 983055, 2, 0, 983065, 10, 0, 1048586, 8, 0, 1048587, 8, 0, 1048591, 10, 0, 1048601, 10, 0, 1114122, 8, 0, 1114123, 6, 0, 1114124, 5, 0, 1114125, 5, 0, 1114126, 5, 0, 1114127, 10, 0, 1114128, 5, 0, 1114129, 5, 0, 1114130, 5, 0, 1114131, 5, 0, 1114132, 5, 0, 1114133, 5, 0, 1114134, 5, 0, 1114135, 5, 0, 1114136, 5, 0, 1114137, 7, 0, 1179658, 8, 0, 1179663, 10, 0, 1245194, 6, 0, 1245195, 5, 0, 1245196, 5, 0, 1245197, 5, 0, 1245198, 5, 0, 1245199, 7, 0 )
+
+[node name="dl3" type="Sprite" parent="." index="12"]
+position = Vector2( 416, 560 )
+scale = Vector2( 5.33333, 6 )
+texture = ExtResource( 8 )
+
+[node name="Magnet" parent="." index="13" instance=ExtResource( 11 )]
+position = Vector2( 896, 3.05176e-05 )
+rotation = -1.90933
+gravity_intensity = 500
