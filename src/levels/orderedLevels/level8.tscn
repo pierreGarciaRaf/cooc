@@ -100,6 +100,3 @@ position = Vector2( -128, 32 )
 
 [node name="Cursor" parent="." index="20" instance=ExtResource( 4 )]
 position = Vector2( 64, 512 )
-
-[node name="Control" parent="." index="21"]
-visible = false
