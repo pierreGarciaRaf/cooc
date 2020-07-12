@@ -19,6 +19,8 @@ config/name="cooc"
 run/main_scene="res://src/levelSelector/levelSelector.tscn"
 boot_splash/image="res://BlissLogo.png"
 config/icon="res://icon.png"
+config/macos_native_icon="res://iconcursorcurse.icns"
+config/windows_native_icon="res://iconcursorcurse.ico"
 
 [autoload]
 
