@@ -4,7 +4,7 @@ extends Node2D
 
 export var levelGoalPath : NodePath
 
-
+var Crt = load('res://src/world/environment/crt/CRT.tscn')
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -19,7 +19,8 @@ func _ready():
 	
 	if levelGoalPath != null:
 		find_node("goal").connect("end_level",self,"end_level")
-
+		
+	self.add_child(Crt.instance())
 
 
 func end_level():
@@ -30,4 +31,5 @@ func end_level():
 func player_dies():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
+	print('died')
 	$deathPopup.popup_centered()
