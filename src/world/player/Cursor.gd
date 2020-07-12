@@ -89,7 +89,9 @@ func setCanReceiveDamage(toSet):
 	modulateSprites(Color(1,1,1,1) if canReceiveDamage else Color(1,0,0,1))
 	if not canReceiveDamage:
 		var warning = Warning.instance()
-		self.add_child(warning)
+		warning.position = self.global_position
+		get_parent().add_child(warning)
+		
 		warning.connect('warning_disappeared',self,'warning_disappeared')
 		warning.start()
 

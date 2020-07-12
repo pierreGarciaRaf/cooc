@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="cooc"
 run/main_scene="res://src/levelSelector/levelSelector.tscn"
+boot_splash/image="res://BlissLogo.png"
 config/icon="res://icon.png"
 
 [autoload]
