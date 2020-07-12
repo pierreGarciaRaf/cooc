@@ -5,6 +5,7 @@ extends Node2D
 export var levelGoalPath : NodePath
 
 var Crt = load('res://src/world/environment/crt/CRT.tscn')
+var BSoD = load('res://src/world/environment/bsod/BSoD.tscn')
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,7 +30,12 @@ func end_level():
 	$endGamePopup.popup_centered()
 
 func player_dies():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
-	print('died')
+	var bsod = BSoD.instance()
+	self.add_child(bsod)
+	bsod.connect('bsod_completed', self, 'bsod_completed')
+
+func bsod_completed():
+	print('bsod completed')
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$deathPopup.popup_centered()
