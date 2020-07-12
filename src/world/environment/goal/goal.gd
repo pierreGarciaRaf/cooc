@@ -23,10 +23,13 @@ func _on_goal_body_exited(body):
 		bodyInside = false
 
 
+var alreadyPressed = false
 
 func _input(event):
-	if bodyInside and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
+	if not alreadyPressed and bodyInside and event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
+		alreadyPressed = true
 		$AnimatedSprite.play("checked")
+		$AudioStreamPlayer.play(0)
 		emit_signal("end_level")
 
 

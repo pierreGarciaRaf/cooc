@@ -23,7 +23,6 @@ signal die()
 
 func _ready():
 	hoveringUpdate(false)
-	$CanvasLayer/toReplaceWithSomethingNice.max_value = lifePointPull
 	lifePoint = lifePointPull
 
 func _input(event):
@@ -105,7 +104,7 @@ func hazard_collided(velocity_param):
 	hazard_velocity+=velocity_param
 
 func update_life_bar():
-	$CanvasLayer/toReplaceWithSomethingNice.value = lifePoint
+	(get_node("CanvasLayer/crit" + String(lifePoint+1)) as TextureRect).texture = load("res://src/world/player/critical.png")
 
 
 func hoveringUpdate(isHovering):

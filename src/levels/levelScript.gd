@@ -19,8 +19,7 @@ func _ready():
 	
 	get_tree().get_nodes_in_group('player')[0].connect("die",self,"player_dies")
 	
-	if levelGoalPath != null:
-		find_node("goal").connect("end_level",self,"end_level")
+	find_node("goal").connect("end_level",self,"end_level")
 	$Control/BSoD.visible = false
 
 func end_level():

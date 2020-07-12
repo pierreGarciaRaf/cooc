@@ -12,7 +12,6 @@ func start():
 
 
 func _process(delta):
-	print(delta)
 	self.position+= delta*speed*(b*direction + (1-b)*Vector2(rand_range(-1,1),rand_range(-1,1)))
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
