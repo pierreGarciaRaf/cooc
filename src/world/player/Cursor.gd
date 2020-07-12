@@ -43,6 +43,10 @@ func updateCanReceiveDamage():
 		if (self.position - lastDmgCursorPos).length() > 8*4*4:
 			setCanReceiveDamage(true)
 
+func playDamage():
+	$damagePlayer.pitch_scale = 3*randf()-1.5
+	$damagePlayer.play(0)
+
 func _physics_process(delta):
 	get_input()
 	move_and_slide(velocity/delta+hazard_velocity + pushVelocity)
@@ -55,6 +59,7 @@ func _physics_process(delta):
 			var collider = get_slide_collision(slideIndex).collider
 			if collider.is_in_group("damage_on_contact"):
 				modulateSprites(Color(1,0,0,1))
+				playDamage()
 				if canReceiveDamage:
 					receiveDamage()
 				pushOnContact(get_slide_collision(slideIndex).normal*800)
@@ -69,12 +74,14 @@ func pushOnContact(toBePushedBack):
 	pushVelocity = toBePushedBack
 
 func receiveDamage():
+	
 	lastDmgCursorPos = self.position
 	print("receiveDamage")
 	lifePoint -= 1
 	update_life_bar()
 	setCanReceiveDamage(false)
 	if lifePoint == 0:
+		$deathPlayer.play(0)
 		die()
 
 func setCanReceiveDamage(toSet):
