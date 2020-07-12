@@ -15,10 +15,7 @@ position = Vector2( 928, 32 )
 [node name="Node2D" parent="goal" index="2" instance=ExtResource( 2 )]
 position = Vector2( -96, 32 )
 
-[node name="Cursor" parent="." index="5" instance=ExtResource( 4 )]
-position = Vector2( 64, 544 )
-
-[node name="TileMap" type="TileMap" parent="." index="6" groups=[
+[node name="TileMap" type="TileMap" parent="." index="5" groups=[
 "damage_on_contact",
 ]]
 scale = Vector2( 4, 4 )
@@ -27,8 +24,11 @@ cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 524302, 3, 0, 524303, 5, 0, 524304, 0, 0, 524305, 1, 0, 524306, 2, 0, 589838, 9, 0, 589842, 11, 0, 655374, 8, 0, 655378, 10, 0, 720910, 6, 0, 720911, 5, 0, 720912, 5, 0, 720913, 5, 0, 720914, 7, 0 )
 
-[node name="dl2" type="Sprite" parent="." index="7"]
+[node name="dl2" type="Sprite" parent="." index="6"]
 position = Vector2( 528, 320 )
 rotation = -3.14159
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
+
+[node name="Cursor" parent="." index="7" instance=ExtResource( 4 )]
+position = Vector2( 64, 544 )

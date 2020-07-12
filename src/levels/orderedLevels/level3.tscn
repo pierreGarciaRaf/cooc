@@ -68,10 +68,10 @@ position = Vector2( 960, 544 )
 [node name="Node2D" parent="." index="13" instance=ExtResource( 6 )]
 position = Vector2( 864, 576 )
 
-[node name="Cursor" parent="." index="14" instance=ExtResource( 2 )]
-position = Vector2( 448, 480 )
-
-[node name="goad" type="Sprite" parent="." index="15"]
+[node name="goad" type="Sprite" parent="." index="14"]
 position = Vector2( 880, 464 )
 scale = Vector2( 0.4, 0.666667 )
 texture = ExtResource( 7 )
+
+[node name="Cursor" parent="." index="15" instance=ExtResource( 2 )]
+position = Vector2( 448, 480 )
