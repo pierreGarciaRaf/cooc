@@ -1,45 +1,37 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/world/environment/hazard/magnet/Magnet.gd" type="Script" id=1]
 [ext_resource path="res://src/world/environment/hazard/magnet/magnet.png" type="Texture" id=2]
 [ext_resource path="res://src/world/environment/hazard/magnet/magnet_particles.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 75, 500 )
+extents = Vector2( 50, 500 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 36.2178, 67.9178 )
 
 [sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 2
 particles_animation = true
 particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Curve" id=4]
-_data = [ Vector2( 0.192513, 0.325 ), 0.0, 0.0708333, 0, 0, Vector2( 1, 0.915909 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=11]
+trail_divisor = 2
 emission_shape = 2
-emission_box_extents = Vector3( 75, 30, 1 )
+emission_box_extents = Vector3( 75, 500, 1 )
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 2.0
-initial_velocity_random = 0.18
+initial_velocity = 20.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-linear_accel = 100.0
-scale = 5.0
-scale_random = 0.5
-scale_curve = SubResource( 5 )
-hue_variation = -0.23
-hue_variation_random = 0.53
-anim_speed = 18.72
+linear_accel = 2.0
+angle = 360.0
+scale = 4.0
+anim_speed = 10.0
 anim_offset = 1.0
 anim_offset_random = 1.0
 
@@ -63,7 +55,7 @@ position = Vector2( -2.86102, 11.4442 )
 shape = SubResource( 2 )
 
 [node name="air" type="Area2D" parent="."]
-gravity_vec = Vector2( 2.44921e-15, 40 )
+gravity_vec = Vector2( 2.44929e-15, 40 )
 priority = 1.0
 collision_layer = 4
 
@@ -84,7 +76,7 @@ one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
 material = SubResource( 3 )
-position = Vector2( 0, -1000 )
+position = Vector2( 0, -500 )
 scale = Vector2( 1, -1 )
 amount = 4
 lifetime = 5.0
@@ -94,7 +86,7 @@ randomness = 0.29
 fract_delta = false
 visibility_rect = Rect2( -1500, -1500, 3000, 3000 )
 local_coords = false
-process_material = SubResource( 6 )
+process_material = SubResource( 11 )
 texture = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]

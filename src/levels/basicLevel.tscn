@@ -51,6 +51,7 @@ __meta__ = {
 }
 
 [node name="BSoD" parent="Control" instance=ExtResource( 5 )]
+visible = false
 
 [node name="CRT" parent="Control" instance=ExtResource( 6 )]
 margin_left = -32.0
