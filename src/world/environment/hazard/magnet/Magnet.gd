@@ -88,7 +88,7 @@ func _process(_delta):
 		var gravity = $air.gravity_vec
 		var pos = to_local(entered_body.global_position)
 		var r = self.position.distance_to(pos)
-		emit_signal("hazard_collided",1000000 * $air.gravity_vec/r/r)
+		emit_signal("hazard_collided",1000000 * gravity/r/r)
 
 func change_state(new_state):
 	state = new_state
@@ -102,15 +102,13 @@ func change_state(new_state):
 			$air.space_override = Area2D.SPACE_OVERRIDE_REPLACE
 			if gravity_intensity < 0:
 				animate_area()
-			play_animation('blowing_on')
+		
 		State.BLOWING:
 			$Timer.start()
-			play_animation('blowing')
 		State.BLOWING_OFF:
 			$Particles2D.visible = false
 			$Particles2D.emitting=false
 			$air.space_override = Area2D.SPACE_OVERRIDE_DISABLED
-			play_animation('blowing_off')
 		
 
 func _on_Timer_timeout():
@@ -133,20 +131,6 @@ func start():
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	_on_blow_animation_finished()
 
-# Abstract function to play animation (AnimatedSprite or AnimationPlayer)
-func play_animation(anim_name):
-	var backward = gravity_intensity > 0
-	if backward:
-		if has_node(@"AnimationPlayer"):
-			$AnimationPlayer.play_backwards(anim_name)
-		else:
-			$Sprite.play(anim_name,true)
-	else:
-		if has_node(@"AnimationPlayer"):
-			$AnimationPlayer.play(anim_name)
-		else:
-			$Sprite.play(anim_name)
-			
 
 var state
 
