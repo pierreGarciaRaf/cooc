@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 
+var Warning = load("res://src/world/environment/warning/Warning.tscn")
 
 var mouseMoveBetweenProcess =  Vector2.ZERO
 var velocity = Vector2()
@@ -73,8 +74,8 @@ func modulateSprites(color):
 func pushOnContact(toBePushedBack):
 	pushVelocity = toBePushedBack
 
+
 func receiveDamage():
-	
 	lastDmgCursorPos = self.position
 	print("receiveDamage")
 	lifePoint -= 1
@@ -88,7 +89,14 @@ func setCanReceiveDamage(toSet):
 	canReceiveDamage = toSet
 	modulateSprites(Color(1,1,1,1) if canReceiveDamage else Color(1,0,0,1))
 	if not canReceiveDamage:
-		$damageTimer.start()
+		var warning = Warning.instance()
+		self.add_child(warning)
+		warning.connect('warning_disappeared',self,'warning_disappeared')
+		warning.start()
+
+func warning_disappeared():
+	setCanReceiveDamage(true)
+
 
 func die():
 	emit_signal("die")
@@ -99,9 +107,6 @@ func hazard_collided(velocity_param):
 func update_life_bar():
 	$CanvasLayer/toReplaceWithSomethingNice.value = lifePoint
 
-
-func _on_damageTimer_timeout():
-	setCanReceiveDamage(true)
 
 func hoveringUpdate(isHovering):
 	$arrow.visible = !isHovering
